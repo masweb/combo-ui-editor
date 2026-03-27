@@ -127,9 +127,10 @@ const useGoogleFonts = () => {
       const count = await countFonts(db)
 
       if (count === 0) {
-        // Seed from bundled JSON
-        const raw = await import('../json/googleFontsInfo.json')
-        const items = (raw.default as { items: Array<{ family: string; category: string; variants: string[] }> }).items
+        // Seed from public JSON (fetched at runtime, never bundled)
+        const resp = await fetch('/googleFontsInfo.json')
+        const raw = (await resp.json()) as { items: Array<{ family: string; category: string; variants: string[] }> }
+        const items = raw.items
         const fonts: GoogleFont[] = items.map(item => ({
           family: item.family,
           category: item.category,

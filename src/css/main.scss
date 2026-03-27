@@ -68,12 +68,12 @@ body {
 .btn:focus {
   outline: none !important;
   box-shadow: none !important;
-  border-color: var($primary);
+  border-color: $primary;
 }
 
 [data-coreui-theme='dark'] {
   .form-control:focus {
-    border-color: var($primary-dark) !important;
+    border-color: $primary-dark !important;
   }
 }
 

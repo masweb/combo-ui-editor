@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { IconDeviceFloppy, IconFolderOpen, IconFileSpark, IconSunFilled, IconMoonFilled } from '@tabler/icons-vue'
+import { IconDeviceFloppy, IconFolderOpen, IconFilePlus, IconSunFilled, IconMoonFilled } from '@tabler/icons-vue'
 import ThemeSyncToggle from './ThemeSyncToggle.vue'
 import { useThemeSyncLog } from '@/composables/useThemeSyncLog'
 
@@ -68,10 +68,7 @@ const handleSave = async () => {
 </script>
 <template>
   <div class="main-bar d-flex">
-    <div class="d-flex align-items-center">
-      <div class="ms-3 fw-light text-">COMBO-UI Editor</div>
-    </div>
-    <div class="d-flex align-items-center ms-3">
+    <div class="d-flex align-items-center ms-2">
       <ThemeSyncToggle />
       <div class="ms-2 theme-sync-log" v-if="logs.length > 0">
         <div v-for="(entry, index) in logs.slice(-5)" :key="index" class="log-entry">
@@ -92,13 +89,13 @@ const handleSave = async () => {
         {{ themeName }}
       </span>
       <button class="btn btn-sm btn-link" :title="t('theme.new')" :disabled="isCreatingNew" @click="handleNewClick">
-        <IconFileSpark :size="16" :stroke-width="1.8" />
+        <IconFilePlus :size="22" :stroke-width="1.5" />
       </button>
       <button class="btn btn-sm btn-link" :title="t('theme.open')" :disabled="isImporting" @click="handleOpenClick">
-        <IconFolderOpen :size="16" :stroke-width="1.8" />
+        <IconFolderOpen :size="22" :stroke-width="1.5" />
       </button>
       <button class="btn btn-sm btn-link" :title="t('theme.save')" :disabled="isExporting" @click="handleSave">
-        <IconDeviceFloppy :size="16" :stroke-width="1.8" />
+        <IconDeviceFloppy :size="22" :stroke-width="1.5" />
       </button>
     </div>
     <div class="d-flex align-items-center">
@@ -110,8 +107,8 @@ const handleSave = async () => {
         class="btn btn-sm btn-link pe-3"
         @click="setTheme(theme === 'dark' ? 'light' : 'dark')"
       >
-        <IconSunFilled v-if="theme === 'dark'" :size="24" stroke-width="1.2" />
-        <IconMoonFilled v-else :size="22" stroke-width="1.2" />
+        <IconSunFilled v-if="theme === 'dark'" :size="24" />
+        <IconMoonFilled v-else :size="22" />
       </button>
     </div>
   </div>

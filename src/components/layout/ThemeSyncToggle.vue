@@ -29,8 +29,8 @@ const buttonTitle = computed(() => {
 
 <template>
   <button class="btn btn-sm btn-link" :title="buttonTitle" @click="handleClick">
-    <IconBroadcast v-if="isBroadcasting" :size="22" :stroke-width="1.8" />
-    <IconBroadcastOff v-else :size="22" :stroke-width="1.8" />
+    <IconBroadcast v-if="isBroadcasting" :size="22" :stroke-width="1.5" />
+    <IconBroadcastOff v-else :size="22" :stroke-width="1.5" />
   </button>
 
   <!-- Error Modal -->
