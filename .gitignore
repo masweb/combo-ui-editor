@@ -12,7 +12,8 @@ dist
 dist-ssr
 *.local
 update.md
-/src-tauri/node-x86_64-apple-darwin
+
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
@@ -23,3 +24,6 @@ update.md
 *.njsproj
 *.sln
 *.sw?
+
+# Native node modules build artifacts
+src-tauri/node-*
