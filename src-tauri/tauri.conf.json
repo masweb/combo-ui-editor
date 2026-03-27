@@ -6,15 +6,15 @@
   "build": {
     "beforeDevCommand": "vp dev",
     "devUrl": "http://localhost:1420",
-    "beforeBuildCommand": "vp build && cd theme-sync-server && pnpm run build",
+    "beforeBuildCommand": "vp build && cd src-tauri/theme-sync-server && pnpm run build",
     "frontendDist": "../dist"
   },
   "app": {
     "windows": [
       {
         "title": "COMBO-UI Editor",
-        "width": 1600,
-        "height": 1400
+        "width": 1124,
+        "height": 1310
       }
     ],
     "security": {
@@ -24,13 +24,18 @@
   "bundle": {
     "active": true,
     "targets": "all",
+    "createUpdaterArtifacts": true,
     "resources": ["theme-sync-server/dist/theme-sync-server.cjs"],
-    "icon": [
-      "icons/32x32.png",
-      "icons/128x128.png",
-      "icons/128x128@2x.png",
-      "icons/icon.icns",
-      "icons/icon.ico"
-    ]
+    "externalBin": ["node"],
+    "icon": ["icons/32x32.png", "icons/128x128.png", "icons/128x128@2x.png", "icons/icon.icns", "icons/icon.ico"],
+    "iOS": {
+      "bundleVersion": "100"
+    }
+  },
+  "plugins": {
+    "updater": {
+      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IDVBNEM1RjVDMzBCNTE2NkUKUldSdUZyVXdYRjlNV3JQV3Rqaktzak8vUDlvcmhEN0NDZTlwRGtmU3dyTCs5Vk5xTlFFN3RVdUoK",
+      "endpoints": ["https://github.com/masweb/combo-ui-editor/releases/latest/download/latest.json"]
+    }
   }
 }

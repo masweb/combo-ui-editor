@@ -1,7 +1,12 @@
-# Tauri + Vue + TypeScript
+# COMBO-UI Editor
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+COMBO-UI se compone de un editor de componentes UI y varios paquetes npm que permiten utilizar tus diseños de temas en tu App frontend y ver los cambios aplicados en tiempo real.
 
-## Recommended IDE Setup
+1. Creas el tema en el editor.
+2. Instalas COMO-UI en tu app como paquete npm.
+3. Creas la páginas de tu App.
+4. Cambia el diseño del tema mientras ves los cambios en tu propia app.
 
-- [VS Code](https://code.visualstudio.com/) + [Vue - Official](https://marketplace.visualstudio.com/items?itemName=Vue.volar) + [Tauri](https://marketplace.visualstudio.com/items?itemName=tauri-apps.tauri-vscode) + [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer)
+# Descarga del editor
+
+[Releases](https://github.com/masweb/combo-ui-editor/releases/)

@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pnpm tauri:*)",
+      "Bash(open \"/Users/guille/Code/combo-ui-editor/src-tauri/target/release/bundle/macos/COMBO-UI Editor.app\")",
+      "mcp__mcp-server-context7__resolve-library-id",
+      "mcp__mcp-server-context7__query-docs",
+      "Bash(mkdir -p /Users/guille/Code/combo-ui-editor/src-tauri/binaries)",
+      "Bash(curl -L https://nodejs.org/dist/v22.14.0/node-v22.14.0-darwin-x64.tar.gz -o node.tar.gz)",
+      "Bash(tar -xzf node.tar.gz node-v22.14.0-darwin-x64/bin/node)",
+      "Bash(curl -L https://nodejs.org/dist/v24.0.0/node-v24.0.0-darwin-x64.tar.gz -o node.tar.gz)",
+      "Bash(tar -xzf node.tar.gz node-v24.0.0-darwin-x64/bin/node)",
+      "Bash(curl -L https://nodejs.org/dist/v24.14.1/node-v24.14.1-darwin-x64.tar.gz -o node.tar.gz)",
+      "Bash(tar -xzf node.tar.gz node-v24.14.1-darwin-x64/bin/node)"
+    ]
+  }
+}

@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import { saveWindowState, StateFlags } from '@tauri-apps/plugin-window-state'
+saveWindowState(StateFlags.ALL)
+
 const nav = useNavigationStore()
 </script>
 
