@@ -1,0 +1,19 @@
+{
+  "name": "@combo-ux/theme-sync-server",
+  "version": "0.1.0",
+  "private": true,
+  "type": "commonjs",
+  "scripts": {
+    "dev": "node src/simple-server.js",
+    "build": "esbuild src/simple-server.js --bundle --platform=node --outfile=dist/theme-sync-server.cjs --minify",
+    "start": "node dist/theme-sync-server.cjs"
+  },
+  "dependencies": {
+    "ws": "^8.20.0"
+  },
+  "devDependencies": {
+    "esbuild": "^0.27.4",
+    "pkg": "^5.8.1"
+  },
+  "packageManager": "pnpm@10.33.0"
+}
