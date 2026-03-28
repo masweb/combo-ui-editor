@@ -14,7 +14,13 @@
       "Bash(tar -xzf node.tar.gz node-v24.14.1-darwin-x64/bin/node)",
       "Bash(git checkout:*)",
       "Bash(git add:*)",
-      "Bash(git stash:*)"
+      "Bash(git stash:*)",
+      "Bash(rustc --version)",
+      "Bash(cargo check:*)",
+      "Bash(cat /Users/guille/Code/combo-ui-editor/src-tauri/capabilities/*.json)",
+      "Bash(pnpm add:*)",
+      "Bash(cargo add:*)",
+      "Bash(find /Users/guille/Code/combo-ui-editor/src-tauri -name *.json -path */gen/*)"
     ]
   }
 }

@@ -3,7 +3,7 @@ import { IconBroadcast, IconBroadcastOff } from '@tabler/icons-vue'
 import { useThemeSync } from '@/composables/useThemeSync'
 import ConfirmModal from '@/components/shared/ConfirmModal.vue'
 
-const { isConnected, isBroadcasting, error, toggleRealtime } = useThemeSync()
+const { isBroadcasting, error, toggleRealtime } = useThemeSync()
 const { t } = useI18n()
 
 const showErrorModal = ref(false)
