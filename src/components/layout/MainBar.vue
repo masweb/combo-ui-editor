@@ -68,15 +68,7 @@ const handleSave = async () => {
 </script>
 <template>
   <div class="main-bar d-flex">
-    <div class="d-flex align-items-center ms-2">
-      <ThemeSyncToggle />
-      <div class="ms-2 theme-sync-log" v-if="logs.length > 0">
-        <div v-for="(entry, index) in logs.slice(-5)" :key="index" class="log-entry">
-          {{ formatTime(entry.timestamp) }} {{ entry.message }}
-        </div>
-      </div>
-    </div>
-    <div class="d-flex align-items-center">
+    <div class="d-flex align-items-center ms-4">
       <input
         v-if="isEditingThemeName"
         v-model="themeName"
@@ -97,6 +89,14 @@ const handleSave = async () => {
       <button class="btn btn-sm btn-link" :title="t('theme.save')" :disabled="isExporting" @click="handleSave">
         <IconDeviceFloppy :size="22" :stroke-width="1.5" />
       </button>
+    </div>
+    <div class="d-flex align-items-center">
+      <ThemeSyncToggle />
+      <div class="ms-2 theme-sync-log" v-if="logs.length > 0">
+        <div v-for="(entry, index) in logs.slice(-5)" :key="index" class="log-entry">
+          {{ formatTime(entry.timestamp) }} {{ entry.message }}
+        </div>
+      </div>
     </div>
     <div class="d-flex align-items-center">
       <select v-model="locale" class="form-select form-select-sm border-0">

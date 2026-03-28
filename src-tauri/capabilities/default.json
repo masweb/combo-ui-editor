@@ -8,6 +8,9 @@
     "opener:default",
     "shell:default",
     "updater:default",
+    "dialog:default",
+    "fs:default",
+    "fs:allow-write-file",
     {
       "identifier": "shell:allow-execute",
       "allow": [

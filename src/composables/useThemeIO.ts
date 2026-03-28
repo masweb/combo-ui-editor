@@ -5,6 +5,8 @@ import { useTypographyStore, getTypographyDefaults } from '@/stores/typography'
 import { useFormsStore, getFormsDefaults } from '@/stores/forms'
 import { generateReadme } from './useReadmeGenerator'
 import JSZip from 'jszip'
+import { save } from '@tauri-apps/plugin-dialog'
+import { writeFile } from '@tauri-apps/plugin-fs'
 
 const THEME_VERSION = '1.0'
 const DEFAULT_THEME_NAME = 'NewTheme'
@@ -104,23 +106,46 @@ export const useThemeIO = () => {
       zip.file(`${name}.json`, json)
       zip.file('README.md', readme)
 
-      // Generate ZIP blob and download
-      const blob = await zip.generateAsync({ type: 'blob' })
-      const url = URL.createObjectURL(blob)
+      // Generate ZIP as Uint8Array
+      const uint8Array = await zip.generateAsync({ type: 'uint8array' })
 
-      // Create temporary link and trigger download
-      const link = document.createElement('a')
-      link.href = url
-      link.download = `${name}.zip`
-      document.body.appendChild(link)
-      link.click()
-      document.body.removeChild(link)
-
-      // Clean up
-      URL.revokeObjectURL(url)
+      // Try Tauri native save dialog first
+      if (window.__TAURI_INTERNALS__) {
+        const filePath = await save({
+          defaultPath: `${name}.zip`,
+          filters: [{ name: 'ZIP Archive', extensions: ['zip'] }]
+        })
+        if (!filePath) return false // User cancelled
+        await writeFile(filePath, uint8Array)
+      } else if (window.showSaveFilePicker) {
+        // Browser fallback: File System Access API (Chrome/Edge)
+        const blob = new Blob([uint8Array], { type: 'application/zip' })
+        const handle = await window.showSaveFilePicker({
+          suggestedName: `${name}.zip`,
+          types: [{ description: 'ZIP Archive', accept: { 'application/zip': ['.zip'] } }]
+        })
+        const writable = await handle.createWritable()
+        await writable.write(blob)
+        await writable.close()
+      } else {
+        // Browser fallback: download link
+        const blob = new Blob([uint8Array], { type: 'application/zip' })
+        const url = URL.createObjectURL(blob)
+        const link = document.createElement('a')
+        link.href = url
+        link.download = `${name}.zip`
+        document.body.appendChild(link)
+        link.click()
+        document.body.removeChild(link)
+        URL.revokeObjectURL(url)
+      }
 
       return true
-    } catch (err) {
+    } catch (err: unknown) {
+      // User cancelled the dialog
+      if (err instanceof Error && err.name === 'AbortError') {
+        return false
+      }
       console.error('Error exporting theme:', err)
       error.value = 'Error al exportar el tema'
       return false
