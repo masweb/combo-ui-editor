@@ -208,7 +208,7 @@ declare global {
   export type { ButtonVariant, DarkButton } from './src/types/button'
   import('./src/types/button')
   // @ts-ignore
-  export type { CardVariant, DarkCard } from './src/types/card'
+  export type { CardVariant } from './src/types/card'
   import('./src/types/card')
   // @ts-ignore
   export type { ChipVariant, DarkChip } from './src/types/chip'
@@ -231,6 +231,9 @@ declare global {
   // @ts-ignore
   export type { SpinnerVariant, DarkSpinner } from './src/types/spinner'
   import('./src/types/spinner')
+  // @ts-ignore
+  export type { TableVariant, DarkCard } from './src/types/table'
+  import('./src/types/table')
   // @ts-ignore
   export type { ThemeComponentData, ThemeTypographyData, ThemeFormsData, ThemeData } from './src/types/theme'
   import('./src/types/theme')

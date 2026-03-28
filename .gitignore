@@ -24,6 +24,11 @@ update.md
 *.njsproj
 *.sln
 *.sw?
+.claude
+AGENTS.md
+CLAUDE.md
+docs
+project
 
 # Native node modules build artifacts
 src-tauri/node-*

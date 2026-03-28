@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const nav = useNavigationStore()
-const { previewComponents, settingsComponents } = useComponentRegistry()
+const { settingsComponents } = useComponentRegistry()
 
 const { t } = useI18n()
 
