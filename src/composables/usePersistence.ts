@@ -3,6 +3,7 @@ import { db, COMPONENT_STORE_MAP, type ComponentData } from '@/db'
 import type { BaseVariant } from './useVariantManager.js'
 import { useVariantManager, deepClone } from './useVariantManager.js'
 import { storeManager } from './useStoreManager.js'
+import { loadFontsFromVariants } from './useGoogleFonts.js'
 
 interface PersistenceOptions<T extends BaseVariant> {
   componentId: string
@@ -70,6 +71,12 @@ export const getOrCreatePersistence = <T extends BaseVariant>(
         }
         isLoaded.value = true
         hasChanges.value = false
+        loadFontsFromVariants(
+          manager.variants.value as Array<Record<string, unknown>>,
+          ['fontFamily', 'headerFontFamily'],
+          true,
+          0
+        )
       } catch (error) {
         console.error(`Error loading ${componentId} from DB:`, error)
       } finally {

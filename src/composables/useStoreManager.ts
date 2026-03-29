@@ -1,6 +1,5 @@
 import { useNavigationStore } from '@/stores/navigation'
 import { COMPONENT_STORE_MAP } from '@/db'
-import { loadFontsFromVariants } from './useGoogleFonts.js'
 import type { Ref } from 'vue'
 
 interface StoreInstance {
@@ -24,9 +23,7 @@ class StoreManager {
     if (this.pendingLoads.has(componentId)) {
       this.pendingLoads.delete(componentId)
       if (!store.isLoaded.value) {
-        void store.loadFromDB().then(() => {
-          this.loadComponentFonts(componentId, store)
-        })
+        void store.loadFromDB()
       }
     }
   }
@@ -59,21 +56,8 @@ class StoreManager {
       if (!store.isLoaded.value) {
         await store.loadFromDB()
       }
-      this.loadComponentFonts(componentId, store)
     } else {
       this.pendingLoads.add(componentId)
-    }
-  }
-
-  private loadComponentFonts(_componentId: string, store: StoreInstance) {
-    if (store.variants && Array.isArray(store.variants.value)) {
-      const selectedIndex = store.selectedVariantIndex?.value ?? 0
-      loadFontsFromVariants(
-        store.variants.value as Array<Record<string, unknown>>,
-        ['fontFamily', 'headerFontFamily'],
-        false,
-        selectedIndex
-      )
     }
   }
 
@@ -90,13 +74,11 @@ class StoreManager {
   }
 
   async reloadAllStores() {
-    // Reload all non-permanent stores
     for (const [componentId, store] of this.stores.entries()) {
       if (PERMANENT_STORES.includes(componentId)) continue
 
       store.clearFromMemory()
       await store.loadFromDB()
-      this.loadComponentFonts(componentId, store)
     }
   }
 
