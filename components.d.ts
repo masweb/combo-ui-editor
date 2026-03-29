@@ -46,6 +46,8 @@ declare module 'vue' {
     MainBar: typeof import('./src/components/layout/MainBar.vue')['default']
     NumberUnitField: typeof import('./src/components/settings/fields/NumberUnitField.vue')['default']
     PaddingField: typeof import('./src/components/settings/fields/PaddingField.vue')['default']
+    Pagination: typeof import('./src/components/previews/Pagination.vue')['default']
+    PaginationSettings: typeof import('./src/components/settings/PaginationSettings.vue')['default']
     PreviewBackgroundPicker: typeof import('./src/components/shared/PreviewBackgroundPicker.vue')['default']
     PreviewView: typeof import('./src/components/layout/PreviewView.vue')['default']
     Progress: typeof import('./src/components/previews/Progress.vue')['default']
