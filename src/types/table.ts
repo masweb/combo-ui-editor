@@ -1,16 +1,17 @@
 export interface TableVariant {
   name: string
+
   background: string
   color: string
   border: BorderValue
   borderRadius: BorderRadiusValue
-  padding: PaddingValue
+
   fontFamily?: string | null
   fontSize: UnitNumber
   fontStyle: FontStyle
   fontWeight: string
   letterSpacing: LetterSpacingValue
-  textAlign: TextAlign
+
   headerBackground: string
   headerColor: string
   headerPadding: PaddingValue
@@ -20,20 +21,46 @@ export interface TableVariant {
   headerFontWeight: string
   headerFontSize: UnitNumber
   headerLetterSpacing: LetterSpacingValue
-  headerTextAlign: TextAlign
-  shadows?: {
-    offset?: ShadowValue
-    inset?: ShadowValue
-    insetHighlight?: ShadowValue
-  }
-  dark: DarkCard
+
+  footerBackground: string
+  footerColor: string
+  footerBorderTop: BorderValue
+
+  cellPadding: PaddingValue
+  horizontalBorderEnabled: boolean
+  horizontalBorder: BorderValue
+  verticalBorderEnabled: boolean
+  verticalBorder: BorderValue
+
+  stripedRows: boolean
+  stripedRowBackground: string
+  stripedColumns: boolean
+  stripedColumnBackground: string
+
+  hoverable: boolean
+  hoverBackground: string
+  hoverColor: string
+
+  shadow?: ShadowValue
+
+  dark: DarkTable
 }
 
-export interface DarkCard extends DarkModeShadows {
+export interface DarkTable {
   background: string
   color: string
   borderColor: string
   headerBackground: string
   headerColor: string
   headerBorderBottomColor: string
+  footerBackground: string
+  footerColor: string
+  footerBorderTopColor: string
+  horizontalBorderColor: string
+  verticalBorderColor: string
+  stripedRowBackground: string
+  stripedColumnBackground: string
+  hoverBackground: string
+  hoverColor: string
+  shadowColor: string
 }

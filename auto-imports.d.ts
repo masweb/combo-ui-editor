@@ -139,6 +139,7 @@ declare global {
   const useStyleBuilder: typeof import('./src/composables/useStyleBuilder').useStyleBuilder
   const useSubmitCount: typeof import('vee-validate').useSubmitCount
   const useSubmitForm: typeof import('vee-validate').useSubmitForm
+  const useTableStore: typeof import('./src/stores/table').useTableStore
   const useTemplateRef: typeof import('vue').useTemplateRef
   const useTheme: typeof import('./src/composables/useTheme').useTheme
   const useThemeCompensation: typeof import('./src/composables/useThemeCompensation').useThemeCompensation
@@ -208,7 +209,7 @@ declare global {
   export type { ButtonVariant, DarkButton } from './src/types/button'
   import('./src/types/button')
   // @ts-ignore
-  export type { CardVariant } from './src/types/card'
+  export type { CardVariant, DarkCard } from './src/types/card'
   import('./src/types/card')
   // @ts-ignore
   export type { ChipVariant, DarkChip } from './src/types/chip'
@@ -232,7 +233,7 @@ declare global {
   export type { SpinnerVariant, DarkSpinner } from './src/types/spinner'
   import('./src/types/spinner')
   // @ts-ignore
-  export type { TableVariant, DarkCard } from './src/types/table'
+  export type { TableVariant, DarkTable } from './src/types/table'
   import('./src/types/table')
   // @ts-ignore
   export type { ThemeComponentData, ThemeTypographyData, ThemeFormsData, ThemeData } from './src/types/theme'
