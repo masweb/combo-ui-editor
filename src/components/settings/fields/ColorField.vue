@@ -360,29 +360,41 @@ const onAlphaInput = (e: Event) => {
 
 // ─── EyeDropper ──────────────────────────────────────────────────────────────
 
-const eyeDropperSupported = typeof window !== 'undefined' && 'EyeDropper' in window
+const isTauri = typeof window !== 'undefined' && '__TAURI_INTERNALS__' in window
+const eyeDropperApiSupported = typeof window !== 'undefined' && 'EyeDropper' in window
+const eyeDropperSupported = eyeDropperApiSupported || isTauri
+
+const applyPickedColor = (hex: string) => {
+  const p = parseColor(hex)
+  hue.value = p.h
+  sat.value = p.s
+  lit.value = p.l
+  alpha.value = p.a
+  cursorX.value = p.s / 100
+  cursorY.value = 1 - p.l / 100
+  hexInput.value = hex
+  drawGradient()
+  emit('update:modelValue', hex)
+  if (isBroadcasting.value) {
+    void broadcastImmediate()
+  }
+}
 
 const openEyeDropper = async () => {
-  if (!eyeDropperSupported) return
   try {
-    // @ts-expect-error EyeDropper not yet in TS lib
-    const dropper = new window.EyeDropper()
-    const result = await dropper.open()
-    const picked = result.sRGBHex as string
-    const p = parseColor(picked)
-    hue.value = p.h
-    sat.value = p.s
-    lit.value = p.l
-    alpha.value = p.a
-    cursorX.value = p.s / 100
-    cursorY.value = 1 - p.l / 100
-    hexInput.value = picked
-    drawGradient()
-    emit('update:modelValue', picked)
-    // Broadcast to connected clients when broadcasting is active
-    if (isBroadcasting.value) {
-      void broadcastImmediate()
+    let picked: string | undefined
+
+    if (eyeDropperApiSupported) {
+      // @ts-expect-error EyeDropper not yet in TS lib
+      const dropper = new window.EyeDropper()
+      const result = await dropper.open()
+      picked = result.sRGBHex as string
+    } else if (isTauri) {
+      const { invoke } = await import('@tauri-apps/api/core')
+      picked = await invoke<string>('pick_color')
     }
+
+    if (picked) applyPickedColor(picked)
   } catch {
     // user cancelled — do nothing
   }
