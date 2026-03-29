@@ -1,5 +1,6 @@
 export const COMPONENT_LIST: ListComponentMeta[] = [
   { id: 'table', label: 'Table', description: 'Tabular data', icon: 'IconTable' },
+  { id: 'listgroup', label: 'List Group', description: 'List of items', icon: 'IconList' },
   { id: 'button', label: 'Button', description: 'Trigger actions', icon: 'IconXboxB' },
   { id: 'card', label: 'Card', description: 'Content container', icon: 'IconCreditCard' },
   { id: 'alert', label: 'Alert', description: 'Feedback messages', icon: 'IconAlertSquareRounded' },

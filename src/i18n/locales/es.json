@@ -20,6 +20,8 @@
     "divider-descr": "Separador visual",
     "table": "Tabla",
     "table-descr": "Datos tabulares",
+    "listgroup": "Grupo de lista",
+    "listgroup-descr": "Lista de elementos",
     "typography": "Tipografía",
     "typography-descr": "Tipografía de documento",
     "forms": "Formularios",
@@ -150,7 +152,12 @@
     "groupDividerColor": "Color de divisor",
     "groupDividerWidth": "Ancho de divisor",
     "responsive": "Responsiva",
-    "headerTextAlign": "Alineación de cabecera"
+    "headerTextAlign": "Alineación de cabecera",
+    "flush": "Sin bordes laterales",
+    "numbered": "Numerada",
+    "disabledColor": "Color deshabilitado",
+    "disabledBackground": "Fondo deshabilitado",
+    "activeBorderColor": "Color borde activo"
   },
   "sidebar": {
     "title": "Combo UX Editor",

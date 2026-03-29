@@ -41,6 +41,8 @@ declare module 'vue' {
     GoBack: typeof import('./src/components/layout/GoBack.vue')['default']
     InteractiveFields: typeof import('./src/components/shared/InteractiveFields.vue')['default']
     LetterSpacingField: typeof import('./src/components/settings/fields/LetterSpacingField.vue')['default']
+    ListGroup: typeof import('./src/components/previews/ListGroup.vue')['default']
+    ListGroupSettings: typeof import('./src/components/settings/ListGroupSettings.vue')['default']
     MainBar: typeof import('./src/components/layout/MainBar.vue')['default']
     NumberUnitField: typeof import('./src/components/settings/fields/NumberUnitField.vue')['default']
     PaddingField: typeof import('./src/components/settings/fields/PaddingField.vue')['default']

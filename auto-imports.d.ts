@@ -127,6 +127,7 @@ declare global {
   const useIsFormTouched: typeof import('vee-validate').useIsFormTouched
   const useIsFormValid: typeof import('vee-validate').useIsFormValid
   const useIsSubmitting: typeof import('vee-validate').useIsSubmitting
+  const useListGroupStore: typeof import('./src/stores/listgroup').useListGroupStore
   const useModel: typeof import('vue').useModel
   const useNavigationStore: typeof import('./src/stores/navigation').useNavigationStore
   const usePersistence: typeof import('./src/composables/usePersistence').usePersistence
@@ -223,6 +224,9 @@ declare global {
   // @ts-ignore
   export type { BorderStyle, TreeUnit, FourUnit, LineHeightUnit, FontSizeUnit, LetterSpacingUnit, PaddingUnit, FontStyle, TextTransform, TextDecoration, TextAlign, ProgressType, SkeletonAnimation, SpinnerType, Position, BorderValue, BorderRadiusValue, PaddingValue, UnitNumber, LetterSpacingValue, ShadowValue, ComponentShadows, DarkModeShadows } from './src/types/generics'
   import('./src/types/generics')
+  // @ts-ignore
+  export type { ListGroupFlush, ListGroupNumbered, ListGroupVariant, DarkListGroup } from './src/types/listgroup'
+  import('./src/types/listgroup')
   // @ts-ignore
   export type { ProgressVariant, DarkProgress } from './src/types/progress'
   import('./src/types/progress')
