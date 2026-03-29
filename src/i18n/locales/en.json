@@ -22,6 +22,8 @@
     "table-descr": "Tabular data",
     "listgroup": "List Group",
     "listgroup-descr": "List of items",
+    "pagination": "Pagination",
+    "pagination-descr": "Page navigation",
     "typography": "Typography",
     "typography-descr": "Document typography",
     "forms": "Forms",
