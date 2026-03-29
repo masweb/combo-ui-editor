@@ -9,6 +9,7 @@ import type { ProgressVariant } from '@/types/progress'
 import type { SpinnerVariant } from '@/types/spinner'
 import type { AvatarVariant } from '@/types/avatar'
 import type { DividerVariant } from '@/types/divider'
+import type { TableVariant } from '@/types/table'
 import type { FormsVariant, FormsGlobalConfig } from '@/types/forms'
 
 interface TypographyData {
@@ -53,6 +54,7 @@ export class ComboUXDatabase extends Dexie {
   spinners!: EntityTable<ComponentData<SpinnerVariant>, 'id'>
   avatars!: EntityTable<ComponentData<AvatarVariant>, 'id'>
   dividers!: EntityTable<ComponentData<DividerVariant>, 'id'>
+  tableVariants!: EntityTable<ComponentData<TableVariant>, 'id'>
   forms!: EntityTable<FormsData, 'id'>
   themeMeta!: EntityTable<ThemeMetaData, 'id'>
 
@@ -70,11 +72,9 @@ export class ComboUXDatabase extends Dexie {
       spinners: 'id',
       avatars: 'id',
       dividers: 'id',
-      forms: 'id'
-    })
-
-    this.version(2).stores({
-      themeMeta: 'id'
+      forms: 'id',
+      themeMeta: 'id',
+      tableVariants: 'id'
     })
   }
 }
@@ -91,5 +91,6 @@ export const COMPONENT_STORE_MAP: Record<string, keyof ComboUXDatabase> = {
   spinner: 'spinners',
   avatar: 'avatars',
   divider: 'dividers',
-  forms: 'forms'
+  forms: 'forms',
+  table: 'tableVariants'
 }
