@@ -306,7 +306,23 @@ onUnmounted(() => {
 
 // Draw on open
 watch(open, val => {
-  if (val) nextTick(() => drawGradient())
+  if (val) {
+    nextTick(() => {
+      drawGradient()
+      const wrapper = pickerWrapper.value
+      const popover = popoverRef.value
+      if (wrapper && popover) {
+        const wrapperRect = wrapper.getBoundingClientRect()
+        const sidebar = wrapper.closest('.sidebar-scroll-content')
+        const sidebarEl = sidebar ? (sidebar.parentElement as HTMLElement) : wrapper
+        const sidebarRect = sidebarEl.getBoundingClientRect()
+        popover.style.position = 'fixed'
+        popover.style.left = `${sidebarRect.left}px`
+        popover.style.top = `${wrapperRect.bottom + 4}px`
+        popover.style.width = `${sidebarRect.width}px`
+      }
+    })
+  }
 })
 
 // ─── Hex input ────────────────────────────────────────────────────────────────
