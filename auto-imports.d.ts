@@ -94,6 +94,7 @@ declare global {
   const toValue: typeof import('vue').toValue
   const triggerRef: typeof import('vue').triggerRef
   const unref: typeof import('vue').unref
+  const useAccordionStore: typeof import('./src/stores/accordion').useAccordionStore
   const useAlertStore: typeof import('./src/stores/alert').useAlertStore
   const useAttrs: typeof import('vue').useAttrs
   const useAvatarStore: typeof import('./src/stores/avatar').useAvatarStore
@@ -198,6 +199,9 @@ declare global {
   // @ts-ignore
   export type { ListComponentMeta } from './src/constants/index'
   import('./src/constants/index')
+  // @ts-ignore
+  export type { AccordionVariant, DarkAccordion } from './src/types/accordion'
+  import('./src/types/accordion')
   // @ts-ignore
   export type { AlertVariant, DarkAlert } from './src/types/alert'
   import('./src/types/alert')
