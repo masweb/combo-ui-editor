@@ -11,6 +11,8 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    Accordion: typeof import('./src/components/previews/Accordion.vue')['default']
+    AccordionSettings: typeof import('./src/components/settings/AccordionSettings.vue')['default']
     Alert: typeof import('./src/components/previews/Alert.vue')['default']
     AlertPositionField: typeof import('./src/components/settings/fields/AlertPositionField.vue')['default']
     AlertSettings: typeof import('./src/components/settings/AlertSettings.vue')['default']

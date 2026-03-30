@@ -24,6 +24,8 @@
     "listgroup-descr": "List of items",
     "pagination": "Pagination",
     "pagination-descr": "Page navigation",
+    "accordion": "Accordion",
+    "accordion-descr": "Collapsible content panels",
     "typography": "Typography",
     "typography-descr": "Document typography",
     "forms": "Forms",

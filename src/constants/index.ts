@@ -10,7 +10,8 @@ export const COMPONENT_LIST: ListComponentMeta[] = [
   { id: 'progress', label: 'Progress', description: 'Completion indicator', icon: 'IconEqualDouble' },
   { id: 'chip', label: 'Chip', description: 'Compact info', icon: 'IconInputX' },
   { id: 'spinner', label: 'Spinner', description: 'Loading state', icon: 'IconInnerShadowTopRight' },
-  { id: 'pagination', label: 'Pagination', description: 'Page navigation', icon: 'IconArrowLeftRight' }
+  { id: 'pagination', label: 'Pagination', description: 'Page navigation', icon: 'IconArrowLeftRight' },
+  { id: 'accordion', label: 'Accordion', description: 'Collapsible content', icon: 'IconLayoutList' }
 ]
 
 export const COMPONENT_TYPOGRAPHY_META: ListComponentMeta = {

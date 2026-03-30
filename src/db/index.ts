@@ -12,6 +12,7 @@ import type { DividerVariant } from '@/types/divider'
 import type { TableVariant } from '@/types/table'
 import type { ListGroupVariant } from '@/types/listgroup'
 import type { PaginationVariant } from '@/types/pagination'
+import type { AccordionVariant } from '@/types/accordion'
 import type { FormsVariant, FormsGlobalConfig } from '@/types/forms'
 
 interface TypographyData {
@@ -59,6 +60,7 @@ export class ComboUXDatabase extends Dexie {
   tableVariants!: EntityTable<ComponentData<TableVariant>, 'id'>
   listGroups!: EntityTable<ComponentData<ListGroupVariant>, 'id'>
   paginations!: EntityTable<ComponentData<PaginationVariant>, 'id'>
+  accordions!: EntityTable<ComponentData<AccordionVariant>, 'id'>
   forms!: EntityTable<FormsData, 'id'>
   themeMeta!: EntityTable<ThemeMetaData, 'id'>
 
@@ -80,7 +82,8 @@ export class ComboUXDatabase extends Dexie {
       themeMeta: 'id',
       tableVariants: 'id',
       listGroups: 'id',
-      paginations: 'id'
+      paginations: 'id',
+      accordions: 'id'
     })
   }
 }
@@ -100,5 +103,6 @@ export const COMPONENT_STORE_MAP: Record<string, keyof ComboUXDatabase> = {
   forms: 'forms',
   table: 'tableVariants',
   listgroup: 'listGroups',
-  pagination: 'paginations'
+  pagination: 'paginations',
+  accordion: 'accordions'
 }

@@ -15,7 +15,8 @@ import {
   IconForms,
   IconTable,
   IconList,
-  IconArrowLeftRight
+  IconArrowLeftRight,
+  IconLayoutList
 } from '@tabler/icons-vue'
 const icons: Record<string, Component> = {
   IconXboxB,
@@ -29,7 +30,8 @@ const icons: Record<string, Component> = {
   IconInnerShadowTopRight,
   IconTable,
   IconList,
-  IconArrowLeftRight
+  IconArrowLeftRight,
+  IconLayoutList
 }
 const { t } = useI18n()
 const { isDark } = useTheme()
@@ -73,11 +75,11 @@ const textColor = computed(() =>
     <h5 class="mb-4 text-center" :style="{ color: textColor }">{{ t('components.uiComponents') }}</h5>
 
     <div class="row">
-      <div class="col-md-6 col-lg-4 col-xl-3" v-for="item in COMPONENT_LIST" :key="item.id">
+      <div class="col-md-4 col-lg-3 col-xl-2" v-for="item in COMPONENT_LIST" :key="item.id">
         <div class="card mb-4 user-select-none cursor-pointer" @click="() => (nav.currentComponent = item)">
           <div class="card-header text-center" :style="{ color: textColor }">{{ t(`components.${item.id}`) }}</div>
           <div class="card-body text-center" :style="{ color: textColor, opacity: 0.8 }">
-            <component :is="icons[item.icon ?? '']" :size="80" stroke-width="1" />
+            <component :is="icons[item.icon ?? '']" :size="60" stroke-width=".7" />
           </div>
           <div class="card-footer text-center" :style="{ color: textColor, opacity: 0.8 }">
             {{ t(`components.${item.id}-descr`) }}

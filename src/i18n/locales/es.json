@@ -24,6 +24,8 @@
     "listgroup-descr": "Lista de elementos",
     "pagination": "Paginación",
     "pagination-descr": "Navegación de páginas",
+    "accordion": "Acordeón",
+    "accordion-descr": "Paneles de contenido colapsable",
     "typography": "Tipografía",
     "typography-descr": "Tipografía de documento",
     "forms": "Formularios",
