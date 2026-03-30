@@ -206,7 +206,7 @@ declare global {
   export type { AlertVariant, DarkAlert } from './src/types/alert'
   import('./src/types/alert')
   // @ts-ignore
-  export type { AvatarVariant, DarkAvatar } from './src/types/avatar'
+  export type { AvatarOnline, AvatarVariant, DarkAvatar } from './src/types/avatar'
   import('./src/types/avatar')
   // @ts-ignore
   export type { BadgeVariant, DarkBadge } from './src/types/badge'

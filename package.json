@@ -12,9 +12,9 @@
   },
   "dependencies": {
     "@coreui/coreui": "^5.6.1",
-    "@coreui/vue": "^5.7.0",
+    "@coreui/vue": "^5.8.0",
     "@intlify/unplugin-vue-i18n": "^11.0.7",
-    "@tabler/icons-vue": "^3.41.0",
+    "@tabler/icons-vue": "^3.41.1",
     "@tauri-apps/api": "^2.10.1",
     "@tauri-apps/plugin-dialog": "^2.6.0",
     "@tauri-apps/plugin-fs": "^2.4.5",
