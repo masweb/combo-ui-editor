@@ -15,6 +15,16 @@ const defaultFontSize = createFontSize(24)
 
 const createDefaultVariant = (name: string): AvatarVariant => ({
   name,
+  size: { value: 64, unit: 'px' },
+  showImage: false,
+  online: {
+    show: true,
+    position: 'bottom-right',
+    color: '#28a745',
+    size: 14,
+    offsetX: 0,
+    offsetY: 0
+  },
   background: '#6c757d',
   color: '#ffffff',
   border: { ...defaultBorder },
@@ -32,7 +42,8 @@ const createDefaultVariant = (name: string): AvatarVariant => ({
     borderColor: '#4d4d4d',
     shadowColor: 'rgba(0,0,0,0.4)',
     shadowInsetColor: 'rgba(0,0,0,0.2)',
-    shadowInsetHighlightColor: 'rgba(255,255,255,0.75)'
+    shadowInsetHighlightColor: 'rgba(255,255,255,0.75)',
+    onlineColor: '#28a745'
   }
 })
 

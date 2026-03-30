@@ -1,5 +1,17 @@
+export interface AvatarOnline {
+  show: boolean
+  position: 'top-right' | 'top-left' | 'bottom-right' | 'bottom-left'
+  color: string
+  size: number
+  offsetX: number
+  offsetY: number
+}
+
 export interface AvatarVariant {
   name: string
+  size: UnitNumber
+  showImage: boolean
+  online: AvatarOnline
   background: string
   color: string
   border: BorderValue
@@ -22,4 +34,5 @@ export interface DarkAvatar extends DarkModeShadows {
   background: string
   color: string
   borderColor: string
+  onlineColor: string
 }

@@ -163,6 +163,17 @@
     "disabledBackground": "Disabled Background",
     "activeBorderColor": "Active Border Color"
   },
+  "avatar": {
+    "showImage": "Show image",
+    "showOnline": "Show online indicator",
+    "onlineIndicator": "Online indicator",
+    "position": "Position",
+    "topRight": "Top right",
+    "topLeft": "Top left",
+    "bottomRight": "Bottom right",
+    "bottomLeft": "Bottom left",
+    "onlineColor": "Online indicator color"
+  },
   "sidebar": {
     "title": "Combo UX Editor",
     "selectHint": "Select a component to customize",
