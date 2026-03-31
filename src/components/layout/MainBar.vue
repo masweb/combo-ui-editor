@@ -1,5 +1,11 @@
 <script setup lang="ts">
-import { IconDeviceFloppy, IconFolderOpen, IconFilePlus, IconSunFilled, IconMoonFilled } from '@tabler/icons-vue'
+import {
+  IconDeviceFloppyFilled,
+  IconFolderOpenFilled,
+  IconCirclePlusFilled,
+  IconSunFilled,
+  IconMoonFilled
+} from '@tabler/icons-vue'
 import ThemeSyncToggle from './ThemeSyncToggle.vue'
 import { useThemeSyncLog } from '@/composables/useThemeSyncLog'
 
@@ -81,13 +87,13 @@ const handleSave = async () => {
         {{ themeName }}
       </span>
       <button class="btn btn-sm btn-link" :title="t('theme.new')" :disabled="isCreatingNew" @click="handleNewClick">
-        <IconFilePlus :size="22" :stroke-width="1.5" />
+        <IconCirclePlusFilled :size="22" :stroke-width="1.5" />
       </button>
       <button class="btn btn-sm btn-link" :title="t('theme.open')" :disabled="isImporting" @click="handleOpenClick">
-        <IconFolderOpen :size="22" :stroke-width="1.5" />
+        <IconFolderOpenFilled :size="22" :stroke-width="1.5" />
       </button>
       <button class="btn btn-sm btn-link" :title="t('theme.save')" :disabled="isExporting" @click="handleSave">
-        <IconDeviceFloppy :size="22" :stroke-width="1.5" />
+        <IconDeviceFloppyFilled :size="22" :stroke-width="1.5" />
       </button>
     </div>
     <div class="d-flex align-items-center">
