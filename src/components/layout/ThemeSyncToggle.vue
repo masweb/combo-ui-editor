@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { IconBroadcast, IconBroadcastOff } from '@tabler/icons-vue'
+import { IconBoltFilled, IconBolt } from '@tabler/icons-vue'
 import { useThemeSync } from '@/composables/useThemeSync'
 import ConfirmModal from '@/components/shared/ConfirmModal.vue'
 
@@ -29,8 +29,8 @@ const buttonTitle = computed(() => {
 
 <template>
   <button class="btn btn-sm btn-link" :title="buttonTitle" @click="handleClick">
-    <IconBroadcast v-if="isBroadcasting" :size="22" :stroke-width="1.5" />
-    <IconBroadcastOff v-else :size="22" :stroke-width="1.5" />
+    <IconBoltFilled v-if="isBroadcasting" :size="22" :stroke-width="1.5" />
+    <IconBolt v-else :size="22" :stroke-width="1.5" />
   </button>
 
   <!-- Error Modal -->
@@ -38,7 +38,7 @@ const buttonTitle = computed(() => {
     :open="showErrorModal"
     :title="t('sync.error')"
     :message="error || t('sync.portInUse')"
-    :confirm-text="t('common.ok') || 'OK'"
+    confirm-text="OK"
     @confirm="handleErrorClose"
     @cancel="handleErrorClose"
   />
