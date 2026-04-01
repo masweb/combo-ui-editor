@@ -22,7 +22,7 @@ const variant = computed(() => tableStore.selectedVariant)
 <template>
   <VariantHeader
     :variant-name="variant?.name"
-    :can-delete="tableStore.variants.length > 1"
+    :can-delete="tableStore.variants.length > 0"
     @update:name="patch({ name: $event })"
     @delete="tableStore.deleteVariant(tableStore.selectedVariantIndex)"
     @add="tableStore.addVariant"
@@ -125,7 +125,7 @@ const variant = computed(() => tableStore.selectedVariant)
       </SettingsSection>
 
       <SettingsSection :title="t('common.cellSpacing')" :initial-open="false">
-         <PaddingField
+        <PaddingField
           :label="t('common.cellPadding')"
           :model-value="variant.cellPadding"
           @update:model-value="patch({ cellPadding: $event })"

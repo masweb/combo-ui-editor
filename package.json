@@ -23,7 +23,7 @@
     "@tauri-apps/plugin-shell": "~2.3.5",
     "@tauri-apps/plugin-updater": "^2.10.0",
     "@tauri-apps/plugin-window-state": "~2.4.1",
-    "dexie": "^4.4.1",
+    "dexie": "^4.4.2",
     "jszip": "^3.10.1",
     "pinia": "^3.0.4",
     "vee-validate": "^4.15.1",
@@ -40,7 +40,7 @@
     "typescript": "~5.9.3",
     "unplugin-auto-import": "^21.0.0",
     "unplugin-vue-components": "^31.1.0",
-    "vite": "npm:@voidzero-dev/vite-plus-core@^0.1.14",
+    "vite": "npm:@voidzero-dev/vite-plus-core@^0.1.15",
     "vite-plus": "latest",
     "vue-tsc": "^3.2.6"
   },

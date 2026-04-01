@@ -17,7 +17,7 @@ interface ComponentStoreConfig<T extends BaseVariant> {
 
   /**
    * Initial variants to load if no persisted data exists
-   * @default [createDefault('variante-1')]
+   * @default [createDefault('v1')]
    */
   initialVariants?: T[]
 }

@@ -22,7 +22,7 @@ const variant = computed(() => badgeStore.selectedVariant)
 <template>
   <VariantHeader
     :variant-name="variant?.name"
-    :can-delete="badgeStore.variants.length > 1"
+    :can-delete="badgeStore.variants.length > 0"
     @update:name="patch({ name: $event })"
     @delete="badgeStore.deleteVariant(badgeStore.selectedVariantIndex)"
     @add="badgeStore.addVariant"

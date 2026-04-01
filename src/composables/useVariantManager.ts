@@ -55,7 +55,7 @@ export const useVariantManager = <T extends BaseVariant>(initialVariants: T[], c
 
   const addVariant = () => {
     const count = variants.value.length + 1
-    const newName = `variante-${count}`
+    const newName = `v${count}`
 
     let newVariant: T
     if (variants.value.length > 0) {
@@ -76,7 +76,7 @@ export const useVariantManager = <T extends BaseVariant>(initialVariants: T[], c
   }
 
   const deleteVariant = (index: number) => {
-    if (variants.value.length > 1 && index >= 0 && index < variants.value.length) {
+    if (variants.value.length > 0 && index >= 0 && index < variants.value.length) {
       variants.value.splice(index, 1)
       if (selectedVariantIndex.value >= variants.value.length) {
         selectedVariantIndex.value = variants.value.length - 1

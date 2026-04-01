@@ -4,8 +4,7 @@ import { useThemeCompensation } from '@/composables/useThemeCompensation'
 import type { AccordionVariant } from '@/types/accordion'
 
 const accordionStore = useAccordionStore()
-const { typographyStore, buildBorderRadius, buildPadding, buildSingleShadow, resolveColor, isDark } =
-  usePreviewGrid()
+const { typographyStore, buildBorderRadius, buildPadding, buildSingleShadow, resolveColor, isDark } = usePreviewGrid()
 
 const componentTheme = useComponentTheme()
 const { theme } = useTheme()
@@ -15,9 +14,18 @@ const openItems = ref<Set<number>>(new Set())
 const hoveredItem = ref(-1)
 
 const sampleItems = [
-  { title: 'Accordion Item #1', body: 'This is the first item\'s accordion body. It is shown by default until the collapse plugin adds the appropriate classes.' },
-  { title: 'Accordion Item #2', body: 'This is the second item\'s accordion body. It is hidden by default until the collapse plugin adds the appropriate classes.' },
-  { title: 'Accordion Item #3', body: 'This is the third item\'s accordion body. It is hidden by default until the collapse plugin adds the appropriate classes.' }
+  {
+    title: 'Accordion Item #1',
+    body: "This is the first item's accordion body. It is shown by default until the collapse plugin adds the appropriate classes."
+  },
+  {
+    title: 'Accordion Item #2',
+    body: "This is the second item's accordion body. It is hidden by default until the collapse plugin adds the appropriate classes."
+  },
+  {
+    title: 'Accordion Item #3',
+    body: "This is the third item's accordion body. It is hidden by default until the collapse plugin adds the appropriate classes."
+  }
 ]
 
 const toggleItem = (idx: number) => {
@@ -135,11 +143,8 @@ const labelColor = computed(() =>
           @click="accordionStore.selectVariant(index)"
         >
           <div class="card-body d-flex justify-content-center">
-            <div :style="getWrapperStyles(variant)" style="width: 100%; max-width: 600px;">
-              <div
-                v-for="(item, itemIdx) in sampleItems"
-                :key="itemIdx"
-              >
+            <div :style="getWrapperStyles(variant)" style="width: 100%; max-width: 600px">
+              <div v-for="(item, itemIdx) in sampleItems" :key="itemIdx">
                 <div
                   :style="getButtonStyles(variant, itemIdx)"
                   @click.stop="toggleItem(itemIdx)"
@@ -165,10 +170,7 @@ const labelColor = computed(() =>
               </div>
             </div>
           </div>
-          <div
-            class="card-footer text-center"
-            :style="[getCompensation(), getFooterCompensation()]"
-          >
+          <div class="card-footer text-center" :style="[getCompensation(), getFooterCompensation()]">
             <small :style="{ color: labelColor }">{{ variant.name }}</small>
           </div>
         </div>

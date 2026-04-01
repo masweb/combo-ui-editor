@@ -106,3 +106,9 @@ export const COMPONENT_STORE_MAP: Record<string, keyof ComboUXDatabase> = {
   pagination: 'paginations',
   accordion: 'accordions'
 }
+
+export const EXPORT_KEY_MAP: Record<string, string> = {
+  tableVariants: 'tables',
+  listGroups: 'listgroups',
+  paginations: 'pagination'
+}

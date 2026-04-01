@@ -22,7 +22,7 @@ const variant = computed(() => listGroupStore.selectedVariant)
 <template>
   <VariantHeader
     :variant-name="variant?.name"
-    :can-delete="listGroupStore.variants.length > 1"
+    :can-delete="listGroupStore.variants.length > 0"
     @update:name="patch({ name: $event })"
     @delete="listGroupStore.deleteVariant(listGroupStore.selectedVariantIndex)"
     @add="listGroupStore.addVariant"
@@ -86,7 +86,6 @@ const variant = computed(() => listGroupStore.selectedVariant)
           :model-value="variant.numbered === 'numbered'"
           @update:model-value="patch({ numbered: $event ? 'numbered' : 'none' })"
         />
-
       </SettingsSection>
 
       <SettingsSection :title="t('common.active')" :initial-open="false">

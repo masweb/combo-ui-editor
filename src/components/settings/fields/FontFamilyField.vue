@@ -40,6 +40,8 @@ const query = ref(props.fontFamily)
 const isOpen = ref(false)
 const inputRef = ref<HTMLInputElement | null>(null)
 const containerRef = ref<HTMLElement | null>(null)
+const highlightedIndex = ref(-1)
+const dropdownRef = ref<HTMLElement | null>(null)
 
 watch(
   () => props.fontFamily,
@@ -52,15 +54,72 @@ watch(isUsingGlobal, () => {
   query.value = ''
 })
 
+const flatItems = computed(() => {
+  const items: { type: 'inherit' } | { type: 'font'; family: string }[] = []
+  if (props.allowInherit) items.push({ type: 'inherit' })
+  for (const font of results.value) {
+    items.push({ type: 'font', family: font.family })
+  }
+  return items
+})
+
+watch(isOpen, open => {
+  if (open) {
+    highlightedIndex.value = -1
+  }
+})
+
 const onInput = (e: Event) => {
   query.value = (e.target as HTMLInputElement).value
   isOpen.value = true
+  highlightedIndex.value = -1
   search(query.value)
 }
 
 const onFocus = () => {
   isOpen.value = true
+  highlightedIndex.value = -1
   search(query.value)
+}
+
+const scrollItemIntoView = (index: number) => {
+  nextTick(() => {
+    const dropdown = dropdownRef.value
+    if (!dropdown) return
+    const items = dropdown.querySelectorAll('.font-dropdown-item')
+    const el = items[index] as HTMLElement | undefined
+    if (el) {
+      el.scrollIntoView({ block: 'nearest' })
+    }
+  })
+}
+
+const onKeydown = (e: KeyboardEvent) => {
+  if (!isOpen.value) return
+  const total = flatItems.value.length
+
+  if (e.key === 'ArrowDown') {
+    e.preventDefault()
+    highlightedIndex.value = total === 0 ? -1 : (highlightedIndex.value + 1) % total
+    scrollItemIntoView(highlightedIndex.value)
+  } else if (e.key === 'ArrowUp') {
+    e.preventDefault()
+    highlightedIndex.value = total === 0 ? -1 : (highlightedIndex.value - 1 + total) % total
+    scrollItemIntoView(highlightedIndex.value)
+  } else if (e.key === 'Enter') {
+    e.preventDefault()
+    if (highlightedIndex.value >= 0 && highlightedIndex.value < total) {
+      const item = flatItems.value[highlightedIndex.value]
+      if (item.type === 'inherit') {
+        selectInherit()
+      } else {
+        selectFamily((item as { type: 'font'; family: string }).family)
+      }
+    }
+  } else if (e.key === 'Escape') {
+    isOpen.value = false
+    query.value = props.fontFamily
+  }
 }
 
 const selectFamily = (family: string) => {
@@ -167,6 +226,7 @@ const weightLabelStyle = (weight: string): Record<string, string> => ({
           autocomplete="off"
           @input="onInput"
           @focus="onFocus"
+          @keydown="onKeydown"
         />
         <button
           v-if="fontFamily && !isUsingGlobal"
@@ -180,23 +240,23 @@ const weightLabelStyle = (weight: string): Record<string, string> => ({
       </div>
 
       <!-- Dropdown -->
-      <div v-if="isOpen" class="font-dropdown">
+      <div v-if="isOpen" ref="dropdownRef" class="font-dropdown">
         <button
           v-if="allowInherit"
           type="button"
           class="font-dropdown-item font-dropdown-item--inherit"
-          :class="{ active: isUsingGlobal }"
+          :class="{ active: isUsingGlobal, highlighted: highlightedIndex === 0 }"
           @click="selectInherit"
         >
           <span class="font-dropdown-family">{{ `(Global) ${typographyStore.globalConfig.fontFamily}` }}</span>
           <span class="font-dropdown-category">Heredar</span>
         </button>
         <button
-          v-for="font in results"
+          v-for="(font, idx) in results"
           :key="font.family"
           type="button"
           class="font-dropdown-item"
-          :class="{ active: font.family === fontFamily }"
+          :class="{ active: font.family === fontFamily, highlighted: highlightedIndex === (allowInherit ? idx + 1 : idx) }"
           @click="selectFamily(font.family)"
         >
           <span class="font-dropdown-family">{{ font.family }}</span>

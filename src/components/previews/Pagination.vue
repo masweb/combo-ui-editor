@@ -23,11 +23,7 @@ const samplePages = [
   { label: '»', active: false, disabled: false }
 ]
 
-const getItemStyles = (
-  variant: PaginationVariant,
-  item: (typeof samplePages)[number],
-  isHovered: boolean
-) => {
+const getItemStyles = (variant: PaginationVariant, item: (typeof samplePages)[number], isHovered: boolean) => {
   const fontFamily = variant.fontFamily ?? typographyStore.effectiveFontFamily
   const base = {
     fontFamily,
@@ -135,10 +131,7 @@ const labelColor = computed(() =>
               </div>
             </nav>
           </div>
-          <div
-            class="card-footer text-center"
-            :style="[getCompensation(), getFooterCompensation()]"
-          >
+          <div class="card-footer text-center" :style="[getCompensation(), getFooterCompensation()]">
             <small :style="{ color: labelColor }">{{ variant.name }}</small>
           </div>
         </div>

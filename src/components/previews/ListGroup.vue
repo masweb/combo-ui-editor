@@ -4,8 +4,7 @@ import { useThemeCompensation } from '@/composables/useThemeCompensation'
 import type { ListGroupVariant } from '@/types/listgroup'
 
 const listGroupStore = useListGroupStore()
-const { typographyStore, buildBorderRadius, buildPadding, buildBorderCSS, resolveColor, isDark } =
-  usePreviewGrid()
+const { typographyStore, buildBorderRadius, buildPadding, buildBorderCSS, resolveColor, isDark } = usePreviewGrid()
 
 const componentTheme = useComponentTheme()
 const { theme } = useTheme()
@@ -19,19 +18,16 @@ const getWrapperStyles = (variant: ListGroupVariant) => {
     backgroundColor: resolveColor(variant.background, variant.dark.background),
     ...(isFlush
       ? { borderRadius: '0' }
-      : { ...buildBorderCSS(variant.border, variant.dark.borderColor), borderRadius: buildBorderRadius(variant.borderRadius) }),
-    boxShadow: s?.enabled
-      ? `${s.offsetX}px ${s.offsetY}px ${s.blur}px ${s.spread}px ${shadowColor}`
-      : 'none',
+      : {
+          ...buildBorderCSS(variant.border, variant.dark.borderColor),
+          borderRadius: buildBorderRadius(variant.borderRadius)
+        }),
+    boxShadow: s?.enabled ? `${s.offsetX}px ${s.offsetY}px ${s.blur}px ${s.spread}px ${shadowColor}` : 'none',
     overflow: 'hidden'
   }
 }
 
-const getItemStyles = (
-  variant: ListGroupVariant,
-  item: (typeof sampleItems)[number],
-  isHovered: boolean
-) => {
+const getItemStyles = (variant: ListGroupVariant, item: (typeof sampleItems)[number], isHovered: boolean) => {
   const fontFamily = variant.fontFamily ?? typographyStore.effectiveFontFamily
   const base = {
     fontFamily,
@@ -135,10 +131,7 @@ const labelColor = computed(() =>
                   @mouseenter="hoveredItem = itemIdx"
                   @mouseleave="hoveredItem = -1"
                 >
-                  <span
-                    v-if="variant.numbered === 'numbered'"
-                    style="margin-right: 8px; font-weight: 600"
-                  >
+                  <span v-if="variant.numbered === 'numbered'" style="margin-right: 8px; font-weight: 600">
                     {{ itemIdx + 1 }}.
                   </span>
                   {{ item.text }}
@@ -146,10 +139,7 @@ const labelColor = computed(() =>
               </div>
             </div>
           </div>
-          <div
-            class="card-footer text-center"
-            :style="[getCompensation(), getFooterCompensation()]"
-          >
+          <div class="card-footer text-center" :style="[getCompensation(), getFooterCompensation()]">
             <small :style="{ color: labelColor }">{{ variant.name }}</small>
           </div>
         </div>

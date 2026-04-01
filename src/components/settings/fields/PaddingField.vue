@@ -37,7 +37,7 @@ const setBottom = (v: number) => (props.modelValue.linkedV ? patch({ top: v, bot
 const setRight = (v: number) => (props.modelValue.linkedH ? patch({ right: v, left: v }) : patch({ right: v }))
 const setLeft = (v: number) => (props.modelValue.linkedH ? patch({ right: v, left: v }) : patch({ left: v }))
 
-const onInput = (fn: (v: number) => void) =>  (e: Event) => fn(clamp(Number((e.target as HTMLInputElement).value)))
+const onInput = (fn: (v: number) => void) => (e: Event) => fn(clamp(Number((e.target as HTMLInputElement).value)))
 </script>
 
 <template>

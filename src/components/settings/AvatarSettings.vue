@@ -21,7 +21,14 @@ const variant = computed(() => avatarStore.selectedVariant)
 
 const sizeUpdates = useUnitNumberUpdates(patch, variant, 'size')
 
-const defaultOnline = { show: true, position: 'bottom-right' as const, color: '#28a745', size: 14, offsetX: 0, offsetY: 0 }
+const defaultOnline = {
+  show: true,
+  position: 'bottom-right' as const,
+  color: '#28a745',
+  size: 14,
+  offsetX: 0,
+  offsetY: 0
+}
 
 const patchOnline = (updates: Partial<AvatarOnline>) => {
   if (!variant.value) return
@@ -39,7 +46,7 @@ const onlinePositions = [
 <template>
   <VariantHeader
     :variant-name="variant?.name"
-    :can-delete="avatarStore.variants.length > 1"
+    :can-delete="avatarStore.variants.length > 0"
     @update:name="patch({ name: $event })"
     @delete="avatarStore.deleteVariant(avatarStore.selectedVariantIndex)"
     @add="avatarStore.addVariant"
@@ -88,7 +95,9 @@ const onlinePositions = [
             <select
               class="form-select form-select-sm"
               :value="variant.online?.position ?? 'bottom-right'"
-              @change="patchOnline({ position: ($event.target as HTMLSelectElement).value as AvatarOnline['position'] })"
+              @change="
+                patchOnline({ position: ($event.target as HTMLSelectElement).value as AvatarOnline['position'] })
+              "
             >
               <option v-for="pos in onlinePositions" :key="pos.value" :value="pos.value">{{ pos.label }}</option>
             </select>

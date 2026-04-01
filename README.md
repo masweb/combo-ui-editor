@@ -11,7 +11,7 @@ COMBO-UI se compone de un editor de componentes UI y varios paquetes npm que per
 
 [Releases](https://github.com/masweb/combo-ui-editor/releases/)
 
-### Alto nivel de personalización 
+### Alto nivel de personalización
 
 COMBO-UI permite un alto nivel de personalización en todos los componentes, desde Typhopgraphy se puede controlar la tipografía de todos los componentes, pero también se puede elegir tipografías diferentes a nivel de componente o de formulario.
 
@@ -23,6 +23,6 @@ COMBO-UI permite crear temas con un número indefinido de variantes por componen
 
 COMBO-UI tiene autosave de manera fija, todos los cambios que realice persisten en memoria mediante el uso de IndexDB ademas puede guardar los temas por si necesita diseñar varios temas a la vez.
 
-### Dark mode 
+### Dark mode
 
 Por defecto todos los temas tienen soporte para Dark Mode, en los paquete dispone de un ThemeToggler que puede usar y personalizar a su gusto, además el Dark/Light mode es compatible con el sistema de VueUSe y Tailwind.
