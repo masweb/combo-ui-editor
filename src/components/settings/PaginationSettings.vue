@@ -30,7 +30,7 @@ const onGapInput = (e: Event) => {
 <template>
   <VariantHeader
     :variant-name="variant?.name"
-    :can-delete="paginationStore.variants.length > 1"
+    :can-delete="paginationStore.variants.length > 0"
     @update:name="patch({ name: $event })"
     @delete="paginationStore.deleteVariant(paginationStore.selectedVariantIndex)"
     @add="paginationStore.addVariant"

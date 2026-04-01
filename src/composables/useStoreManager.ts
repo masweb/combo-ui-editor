@@ -1,6 +1,6 @@
 import { useNavigationStore } from '@/stores/navigation'
 import { COMPONENT_STORE_MAP } from '@/db'
-import type { Ref } from 'vue'
+import { shallowReactive, type Ref } from 'vue'
 
 interface StoreInstance {
   isLoaded: Ref<boolean>
@@ -13,7 +13,7 @@ interface StoreInstance {
 const PERMANENT_STORES = ['typography', 'forms']
 
 class StoreManager {
-  private stores: Map<string, StoreInstance> = new Map()
+  private stores = shallowReactive(new Map<string, StoreInstance>())
   private pendingLoads: Set<string> = new Set()
   private initialized = false
 

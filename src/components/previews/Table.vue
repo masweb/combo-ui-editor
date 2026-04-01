@@ -4,8 +4,7 @@ import { useThemeCompensation } from '@/composables/useThemeCompensation'
 import type { TableVariant } from '@/types/table'
 
 const tableStore = useTableStore()
-const { typographyStore, buildBorderRadius, buildPadding, buildBorderCSS, resolveColor, isDark } =
-  usePreviewGrid()
+const { typographyStore, buildBorderRadius, buildPadding, buildBorderCSS, resolveColor, isDark } = usePreviewGrid()
 
 const componentTheme = useComponentTheme()
 const { theme } = useTheme()
@@ -18,9 +17,7 @@ const getWrapperStyles = (variant: TableVariant) => {
     backgroundColor: resolveColor(variant.background, variant.dark.background),
     ...buildBorderCSS(variant.border, variant.dark.borderColor),
     borderRadius: buildBorderRadius(variant.borderRadius),
-    boxShadow: s?.enabled
-      ? `${s.offsetX}px ${s.offsetY}px ${s.blur}px ${s.spread}px ${shadowColor}`
-      : 'none',
+    boxShadow: s?.enabled ? `${s.offsetX}px ${s.offsetY}px ${s.blur}px ${s.spread}px ${shadowColor}` : 'none',
     overflow: 'hidden'
   }
 }
@@ -80,8 +77,9 @@ const getHeaderRowStyles = (variant: TableVariant) => {
 
 const getTableStyles = (variant: TableVariant) => ({
   width: '100%',
-  borderCollapse: (variant.horizontalBorderEnabled || variant.verticalBorderEnabled) ? 'separate' as const : 'collapse' as const,
-  borderSpacing: (variant.horizontalBorderEnabled || variant.verticalBorderEnabled) ? '0' : undefined
+  borderCollapse:
+    variant.horizontalBorderEnabled || variant.verticalBorderEnabled ? ('separate' as const) : ('collapse' as const),
+  borderSpacing: variant.horizontalBorderEnabled || variant.verticalBorderEnabled ? '0' : undefined
 })
 
 const getHorizontalBorder = (variant: TableVariant) => {
@@ -165,7 +163,11 @@ const labelColor = computed(() =>
                     <th
                       v-for="(header, colIdx) in sampleHeaders"
                       :key="colIdx"
-                      :style="{ ...getHeaderCellStyles(variant), ...getHorizontalBorder(variant), ...(colIdx < sampleHeaders.length - 1 ? getVerticalBorder(variant) : {}) }"
+                      :style="{
+                        ...getHeaderCellStyles(variant),
+                        ...getHorizontalBorder(variant),
+                        ...(colIdx < sampleHeaders.length - 1 ? getVerticalBorder(variant) : {})
+                      }"
                     >
                       {{ header }}
                     </th>
@@ -175,14 +177,22 @@ const labelColor = computed(() =>
                   <tr
                     v-for="(row, rowIdx) in sampleRows"
                     :key="rowIdx"
-                    :style="{ backgroundColor: getStripedRowBg(variant, rowIdx), ...getHoverStyles(variant, hoveredRow === rowIdx) }"
+                    :style="{
+                      backgroundColor: getStripedRowBg(variant, rowIdx),
+                      ...getHoverStyles(variant, hoveredRow === rowIdx)
+                    }"
                     @mouseenter="hoveredRow = rowIdx"
                     @mouseleave="hoveredRow = -1"
                   >
                     <td
                       v-for="(cell, colIdx) in row"
                       :key="colIdx"
-                      :style="{ ...getBodyCellStyles(variant), ...(rowIdx < sampleRows.length - 1 ? getHorizontalBorder(variant) : {}), ...(colIdx < row.length - 1 ? getVerticalBorder(variant) : {}), backgroundColor: getStripedColBg(variant, colIdx) }"
+                      :style="{
+                        ...getBodyCellStyles(variant),
+                        ...(rowIdx < sampleRows.length - 1 ? getHorizontalBorder(variant) : {}),
+                        ...(colIdx < row.length - 1 ? getVerticalBorder(variant) : {}),
+                        backgroundColor: getStripedColBg(variant, colIdx)
+                      }"
                     >
                       {{ cell }}
                     </td>
@@ -193,7 +203,11 @@ const labelColor = computed(() =>
                     <td
                       v-for="(header, colIdx) in sampleHeaders"
                       :key="colIdx"
-                      :style="{ ...getFooterCellStyles(variant), ...getFooterRowStyles(variant), ...(colIdx < sampleHeaders.length - 1 ? getVerticalBorder(variant) : {}) }"
+                      :style="{
+                        ...getFooterCellStyles(variant),
+                        ...getFooterRowStyles(variant),
+                        ...(colIdx < sampleHeaders.length - 1 ? getVerticalBorder(variant) : {})
+                      }"
                     >
                       {{ header }}
                     </td>

@@ -1,4 +1,4 @@
-import { db, COMPONENT_STORE_MAP } from '@/db'
+import { db, COMPONENT_STORE_MAP, EXPORT_KEY_MAP } from '@/db'
 import { storeManager } from './useStoreManager.js'
 import { loadGoogleFont } from './useGoogleFonts.js'
 import { useTypographyStore, getTypographyDefaults } from '@/stores/typography'
@@ -78,8 +78,9 @@ export const useThemeIO = () => {
       const data = await table.get('main')
 
       if (data && data.variants && data.variants.length > 0) {
+        const exportKey = EXPORT_KEY_MAP[tableName] || tableName
         Object.assign(themeData, {
-          [tableName]: {
+          [exportKey]: {
             variants: data.variants,
             selectedVariantIndex: data.selectedVariantIndex
           }
@@ -211,7 +212,8 @@ export const useThemeIO = () => {
           for (const [componentId, tableName] of Object.entries(COMPONENT_STORE_MAP)) {
             if (componentId === 'forms') continue
 
-            const componentData = themeData[tableName]
+            const exportKey = EXPORT_KEY_MAP[tableName] || tableName
+            const componentData = themeData[exportKey] || themeData[tableName]
             if (isThemeComponentData(componentData)) {
               const table = db[tableName] as unknown as {
                 put: (data: { id: string; variants: unknown[]; selectedVariantIndex: number }) => Promise<void>

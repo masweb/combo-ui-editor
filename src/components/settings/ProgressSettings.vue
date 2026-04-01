@@ -24,7 +24,7 @@ const heightUpdates = useUnitNumberUpdates(patch, variant, 'height')
 <template>
   <VariantHeader
     :variant-name="variant?.name"
-    :can-delete="progressStore.variants.length > 1"
+    :can-delete="progressStore.variants.length > 0"
     @update:name="patch({ name: $event })"
     @delete="progressStore.deleteVariant(progressStore.selectedVariantIndex)"
     @add="progressStore.addVariant"

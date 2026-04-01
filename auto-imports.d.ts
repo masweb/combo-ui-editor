@@ -15,6 +15,7 @@ declare global {
   const COMPONENT_TYPOGRAPHY_META: typeof import('./src/constants/index').COMPONENT_TYPOGRAPHY_META
   const ComboUXDatabase: typeof import('./src/db/index').ComboUXDatabase
   const D: typeof import('./src/composables/useDualModePatch').D
+  const EXPORT_KEY_MAP: typeof import('./src/db/index').EXPORT_KEY_MAP
   const EffectScope: typeof import('vue').EffectScope
   const FieldContextKey: typeof import('vee-validate').FieldContextKey
   const FormContextKey: typeof import('vee-validate').FormContextKey

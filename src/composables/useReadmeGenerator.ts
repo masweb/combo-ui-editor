@@ -188,15 +188,17 @@ function generateTypographySection(themeData: ThemeData): string {
 
   // Global config - type assertion
   const typography = themeData.typography as { globalConfig?: unknown; variants: unknown[] } | undefined
-  const globalConfig = typography?.globalConfig as {
-    fontFamily?: string
-    color?: string
-    background?: string
-    dark?: {
-      color?: string
-      background?: string
-    }
-  } | undefined
+  const globalConfig = typography?.globalConfig as
+    | {
+        fontFamily?: string
+        color?: string
+        background?: string
+        dark?: {
+          color?: string
+          background?: string
+        }
+      }
+    | undefined
 
   if (globalConfig) {
     lines.push('### Global Configuration')
@@ -261,17 +263,19 @@ function generateFormsSection(themeData: ThemeData): string {
 
   // Global config - type assertion
   const forms = themeData.forms as { globalConfig?: unknown; variants: unknown[] } | undefined
-  const globalConfig = forms?.globalConfig as {
-    fontFamily?: string
-    color?: string
-    background?: string
-    border?: { color?: string }
-    dark?: {
-      color?: string
-      background?: string
-      borderColor?: string
-    }
-  } | undefined
+  const globalConfig = forms?.globalConfig as
+    | {
+        fontFamily?: string
+        color?: string
+        background?: string
+        border?: { color?: string }
+        dark?: {
+          color?: string
+          background?: string
+          borderColor?: string
+        }
+      }
+    | undefined
 
   if (globalConfig) {
     lines.push('### Global Configuration')
@@ -350,47 +354,44 @@ function generateFormsSection(themeData: ThemeData): string {
   lines.push('  <input type="password" class="cux-input cux-error">')
   lines.push('  <span class="cux-error-message">Password is required</span>')
   lines.push('</div>')
-    lines.push('')
-    lines.push('<!-- Select -->')
-    lines.push('<select class="cux-select">')
-    lines.push('  <option>Option 1</option>')
-    lines.push('  <option>Option 2</option>')
-    lines.push('</select>')
-    lines.push('')
-    lines.push('<!-- Checkbox -->')
-    lines.push('<label class="cux-checkbox">')
-    lines.push('  <input type="checkbox">')
-    lines.push('  <span class="cux-option-label">Accept terms</span>')
-    lines.push('</label>')
-    lines.push('')
-    lines.push('<!-- Radio group -->')
-    lines.push('<div class="cux-option-group">')
-    lines.push('  <label class="cux-radio">')
-    lines.push('    <input type="radio" name="choice">')
-    lines.push('    <span class="cux-option-label">Option A</span>')
-    lines.push('  </label>')
-    lines.push('  <label class="cux-radio">')
-    lines.push('    <input type="radio" name="choice">')
-    lines.push('    <span class="cux-option-label">Option B</span>')
-    lines.push('  </label>')
-    lines.push('</div>')
-    lines.push('')
-    lines.push('<!-- Textarea -->')
-    lines.push('<textarea class="cux-textarea" placeholder="Message"></textarea>')
-    lines.push('')
-    lines.push('<!-- Dropzone -->')
-    lines.push('<div class="cux-dropzone">')
-    lines.push('  Drop files here or click to upload')
-    lines.push('</div>')
-    lines.push('```')
+  lines.push('')
+  lines.push('<!-- Select -->')
+  lines.push('<select class="cux-select">')
+  lines.push('  <option>Option 1</option>')
+  lines.push('  <option>Option 2</option>')
+  lines.push('</select>')
+  lines.push('')
+  lines.push('<!-- Checkbox -->')
+  lines.push('<label class="cux-checkbox">')
+  lines.push('  <input type="checkbox">')
+  lines.push('  <span class="cux-option-label">Accept terms</span>')
+  lines.push('</label>')
+  lines.push('')
+  lines.push('<!-- Radio group -->')
+  lines.push('<div class="cux-option-group">')
+  lines.push('  <label class="cux-radio">')
+  lines.push('    <input type="radio" name="choice">')
+  lines.push('    <span class="cux-option-label">Option A</span>')
+  lines.push('  </label>')
+  lines.push('  <label class="cux-radio">')
+  lines.push('    <input type="radio" name="choice">')
+  lines.push('    <span class="cux-option-label">Option B</span>')
+  lines.push('  </label>')
+  lines.push('</div>')
+  lines.push('')
+  lines.push('<!-- Textarea -->')
+  lines.push('<textarea class="cux-textarea" placeholder="Message"></textarea>')
+  lines.push('')
+  lines.push('<!-- Dropzone -->')
+  lines.push('<div class="cux-dropzone">')
+  lines.push('  Drop files here or click to upload')
+  lines.push('</div>')
+  lines.push('```')
 
-    return lines.join('\n')
+  return lines.join('\n')
 }
 
-function generateComponentSection(
-  component: ComponentInfo,
-  componentData: { variants: { name: string }[] }
-): string {
+function generateComponentSection(component: ComponentInfo, componentData: { variants: { name: string }[] }): string {
   const lines: string[] = []
 
   lines.push(`## ${component.name}`)

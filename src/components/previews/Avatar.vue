@@ -44,7 +44,13 @@ const getImageStyles = (variant: AvatarVariant) => ({
 })
 
 const getOnlineStyles = (variant: AvatarVariant) => {
-  const online = variant.online ?? { position: 'bottom-right' as const, color: '#28a745', size: 14, offsetX: 0, offsetY: 0 }
+  const online = variant.online ?? {
+    position: 'bottom-right' as const,
+    color: '#28a745',
+    size: 14,
+    offsetX: 0,
+    offsetY: 0
+  }
   const positionMap: Record<string, string> = {
     'top-right': 'top',
     'top-left': 'top',
@@ -82,19 +88,10 @@ const getOnlineStyles = (variant: AvatarVariant) => {
           <div class="card-body d-flex align-items-center justify-content-center">
             <div style="position: relative; display: inline-block">
               <div class="preview-avatar" :style="getAvatarStyles(variant)">
-                <img
-                  v-if="variant.showImage"
-                  src="https://i.pravatar.cc/300"
-                  alt=""
-                  :style="getImageStyles(variant)"
-                />
+                <img v-if="variant.showImage" src="https://i.pravatar.cc/300" alt="" :style="getImageStyles(variant)" />
                 <template v-else>AB</template>
               </div>
-              <div
-                v-if="variant.online?.show ?? true"
-                class="online-indicator"
-                :style="getOnlineStyles(variant)"
-              ></div>
+              <div v-if="variant.online?.show ?? true" class="online-indicator" :style="getOnlineStyles(variant)"></div>
             </div>
           </div>
           <div class="card-footer text-center" :style="[getCompensation(), getFooterCompensation()]">

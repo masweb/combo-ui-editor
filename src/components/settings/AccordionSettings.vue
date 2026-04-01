@@ -48,7 +48,7 @@ const updateShadow = (patchData: Partial<ShadowValue>) => {
 <template>
   <VariantHeader
     :variant-name="variant?.name"
-    :can-delete="accordionStore.variants.length > 1"
+    :can-delete="accordionStore.variants.length > 0"
     @update:name="patch({ name: $event })"
     @delete="accordionStore.deleteVariant(accordionStore.selectedVariantIndex)"
     @add="accordionStore.addVariant"
@@ -127,7 +127,14 @@ const updateShadow = (patchData: Partial<ShadowValue>) => {
               max="48"
               step="1"
               v-wheel-number="1"
-              @input="patch({ buttonFontSize: { ...variant.buttonFontSize, value: Number(($event.target as HTMLInputElement).value) } })"
+              @input="
+                patch({
+                  buttonFontSize: {
+                    ...variant.buttonFontSize,
+                    value: Number(($event.target as HTMLInputElement).value)
+                  }
+                })
+              "
             />
             <span class="input-group-text">px</span>
           </div>

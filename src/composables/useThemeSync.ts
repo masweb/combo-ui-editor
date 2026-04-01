@@ -4,7 +4,7 @@
  * Connects to the theme-sync-server and broadcasts theme changes.
  */
 
-import { db, COMPONENT_STORE_MAP } from '@/db'
+import { db, COMPONENT_STORE_MAP, EXPORT_KEY_MAP } from '@/db'
 import { useThemeIO } from './useThemeIO.js'
 import { storeManager } from './useStoreManager.js'
 import { useThemeSyncLog } from './useThemeSyncLog'
@@ -178,23 +178,23 @@ function createThemeSyncInstance() {
 
       const store = allStores.get(componentId)
       if (store?.variants) {
-        // Use live store data
+        const exportKey = EXPORT_KEY_MAP[tableName] || tableName
         Object.assign(themeData, {
-          [tableName]: {
+          [exportKey]: {
             variants: store.variants.value as unknown[],
             selectedVariantIndex: store.selectedVariantIndex?.value ?? 0
           }
         })
       } else {
-        // Fallback to DB
         const table = db[tableName] as unknown as {
           get: (id: string) => Promise<{ variants: unknown[]; selectedVariantIndex: number } | undefined>
         }
         const data = await table.get('main')
 
         if (data && data.variants && data.variants.length > 0) {
+          const exportKey = EXPORT_KEY_MAP[tableName] || tableName
           Object.assign(themeData, {
-            [tableName]: {
+            [exportKey]: {
               variants: data.variants,
               selectedVariantIndex: data.selectedVariantIndex
             }

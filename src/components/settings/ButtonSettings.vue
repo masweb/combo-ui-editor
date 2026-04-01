@@ -22,7 +22,7 @@ const variant = computed(() => buttonStore.selectedVariant)
 <template>
   <VariantHeader
     :variant-name="variant?.name"
-    :can-delete="buttonStore.variants.length > 1"
+    :can-delete="buttonStore.variants.length > 0"
     @update:name="patch({ name: $event })"
     @delete="buttonStore.deleteVariant(buttonStore.selectedVariantIndex)"
     @add="buttonStore.addVariant"

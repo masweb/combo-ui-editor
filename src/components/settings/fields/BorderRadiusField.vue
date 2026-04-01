@@ -63,11 +63,7 @@ onUnmounted(() => {
     <div class="d-flex align-items-center justify-content-between mb-1">
       <label class="field-label mb-0">{{ label }}</label>
       <div class="d-flex align-items-center">
-        <select
-          class="form-select form-select-sm radius-unit-select"
-          :value="modelValue.unit"
-          @change="onUnitChange"
-        >
+        <select class="form-select form-select-sm radius-unit-select" :value="modelValue.unit" @change="onUnitChange">
           <option v-for="u in RADIUS_UNITS" :key="u" :value="u">{{ u }}</option>
         </select>
         <button
@@ -91,7 +87,7 @@ onUnmounted(() => {
           min="0"
           :step="step"
           :value="modelValue.tl"
-          @input="(e) => onCornerInput('tl', e)"
+          @input="e => onCornerInput('tl', e)"
         />
         <span class="radius-corner-label">TL</span>
       </div>
@@ -103,7 +99,7 @@ onUnmounted(() => {
           min="0"
           :step="step"
           :value="modelValue.tr"
-          @input="(e) => onCornerInput('tr', e)"
+          @input="e => onCornerInput('tr', e)"
         />
         <span class="radius-corner-label">TR</span>
       </div>
@@ -115,7 +111,7 @@ onUnmounted(() => {
           min="0"
           :step="step"
           :value="modelValue.bl"
-          @input="(e) => onCornerInput('bl', e)"
+          @input="e => onCornerInput('bl', e)"
         />
         <span class="radius-corner-label">BL</span>
       </div>
@@ -127,7 +123,7 @@ onUnmounted(() => {
           min="0"
           :step="step"
           :value="modelValue.br"
-          @input="(e) => onCornerInput('br', e)"
+          @input="e => onCornerInput('br', e)"
         />
         <span class="radius-corner-label">BR</span>
       </div>

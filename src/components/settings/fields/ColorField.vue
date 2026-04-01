@@ -509,11 +509,7 @@ const isVariationLight = (l: number) => l > 55
         <div class="cp-scale-header">
           <span class="cp-scale-title">Variations</span>
           <div class="cp-scale-switch">
-            <button
-              class="cp-scale-btn"
-              :class="{ active: scaleMode === 'fixed' }"
-              @click="scaleMode = 'fixed'"
-            >
+            <button class="cp-scale-btn" :class="{ active: scaleMode === 'fixed' }" @click="scaleMode = 'fixed'">
               Fixed
             </button>
             <button
@@ -583,10 +579,7 @@ const isVariationLight = (l: number) => l > 55
       <!-- Hex + alpha inputs + eyedropper -->
       <div class="cp-inputs">
         <div class="cp-input-group cp-input-hex">
-          <div
-            class="cp-hex-input-wrap"
-            :style="{ background: swatchStyle.background }"
-          >
+          <div class="cp-hex-input-wrap" :style="{ background: swatchStyle.background }">
             <input
               class="cp-hex-input"
               :class="{ 'text-dark': isLightColor, 'text-light': !isLightColor }"
