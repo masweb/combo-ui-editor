@@ -22,6 +22,8 @@ const variant = computed(() => chipStore.selectedVariant)
 <template>
   <VariantHeader
     :variant-name="variant?.name"
+    :variant-names="chipStore.variants.map((v: any) => v.name)"
+    :variant-index="chipStore.selectedVariantIndex"
     :can-delete="chipStore.variants.length > 0"
     @update:name="patch({ name: $event })"
     @delete="chipStore.deleteVariant(chipStore.selectedVariantIndex)"

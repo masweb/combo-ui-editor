@@ -23,6 +23,8 @@ const spacingUpdates = useUnitNumberUpdates(patch, variant, 'spacing')
 <template>
   <VariantHeader
     :variant-name="variant?.name"
+    :variant-names="dividerStore.variants.map((v: any) => v.name)"
+    :variant-index="dividerStore.selectedVariantIndex"
     :can-delete="dividerStore.variants.length > 0"
     @update:name="patch({ name: $event })"
     @delete="dividerStore.deleteVariant(dividerStore.selectedVariantIndex)"

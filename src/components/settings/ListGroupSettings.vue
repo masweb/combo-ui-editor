@@ -22,6 +22,8 @@ const variant = computed(() => listGroupStore.selectedVariant)
 <template>
   <VariantHeader
     :variant-name="variant?.name"
+    :variant-names="listGroupStore.variants.map((v: any) => v.name)"
+    :variant-index="listGroupStore.selectedVariantIndex"
     :can-delete="listGroupStore.variants.length > 0"
     @update:name="patch({ name: $event })"
     @delete="listGroupStore.deleteVariant(listGroupStore.selectedVariantIndex)"

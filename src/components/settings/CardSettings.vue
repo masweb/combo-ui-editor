@@ -22,6 +22,8 @@ const variant = computed(() => cardStore.selectedVariant)
 <template>
   <VariantHeader
     :variant-name="variant?.name"
+    :variant-names="cardStore.variants.map((v: any) => v.name)"
+    :variant-index="cardStore.selectedVariantIndex"
     :can-delete="cardStore.variants.length > 0"
     @update:name="patch({ name: $event })"
     @delete="cardStore.deleteVariant(cardStore.selectedVariantIndex)"

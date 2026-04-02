@@ -46,6 +46,8 @@ const onlinePositions = [
 <template>
   <VariantHeader
     :variant-name="variant?.name"
+    :variant-names="avatarStore.variants.map((v: any) => v.name)"
+    :variant-index="avatarStore.selectedVariantIndex"
     :can-delete="avatarStore.variants.length > 0"
     @update:name="patch({ name: $event })"
     @delete="avatarStore.deleteVariant(avatarStore.selectedVariantIndex)"

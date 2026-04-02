@@ -22,6 +22,8 @@ const variant = computed(() => tableStore.selectedVariant)
 <template>
   <VariantHeader
     :variant-name="variant?.name"
+    :variant-names="tableStore.variants.map((v: any) => v.name)"
+    :variant-index="tableStore.selectedVariantIndex"
     :can-delete="tableStore.variants.length > 0"
     @update:name="patch({ name: $event })"
     @delete="tableStore.deleteVariant(tableStore.selectedVariantIndex)"

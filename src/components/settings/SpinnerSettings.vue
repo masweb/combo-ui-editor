@@ -34,6 +34,8 @@ const onSpeedInput = (e: Event) => {
 <template>
   <VariantHeader
     :variant-name="variant?.name"
+    :variant-names="spinnerStore.variants.map((v: any) => v.name)"
+    :variant-index="spinnerStore.selectedVariantIndex"
     :can-delete="spinnerStore.variants.length > 0"
     @update:name="patch({ name: $event })"
     @delete="spinnerStore.deleteVariant(spinnerStore.selectedVariantIndex)"
