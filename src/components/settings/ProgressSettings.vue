@@ -24,6 +24,8 @@ const heightUpdates = useUnitNumberUpdates(patch, variant, 'height')
 <template>
   <VariantHeader
     :variant-name="variant?.name"
+    :variant-names="progressStore.variants.map((v: any) => v.name)"
+    :variant-index="progressStore.selectedVariantIndex"
     :can-delete="progressStore.variants.length > 0"
     @update:name="patch({ name: $event })"
     @delete="progressStore.deleteVariant(progressStore.selectedVariantIndex)"
@@ -34,11 +36,6 @@ const heightUpdates = useUnitNumberUpdates(patch, variant, 'height')
     <!-- LIGHT MODE SETTINGS -->
     <template v-if="!isDark">
       <SettingsSection :title="t('common.base')" :initial-open="false">
-        <ColorField
-          :label="t('common.background')"
-          :model-value="variant.background"
-          @update:model-value="patch({ background: $event })"
-        />
         <BorderField
           :label="t('common.border')"
           :model-value="variant.border"
@@ -167,13 +164,7 @@ const heightUpdates = useUnitNumberUpdates(patch, variant, 'height')
     <template v-else>
       <SettingsSection :title="t('common.base')" :initial-open="false">
         <ColorField
-          :label="t('common.background')"
-          :model-value="variant.dark.background"
-          @update:model-value="patchDark({ background: $event })"
-        />
-        <ColorField
           :label="t('common.borderColor')"
-          :model-value="variant.dark.borderColor"
           @update:model-value="patchDark({ borderColor: $event })"
         />
       </SettingsSection>

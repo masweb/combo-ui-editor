@@ -48,6 +48,8 @@ const updateShadow = (patchData: Partial<ShadowValue>) => {
 <template>
   <VariantHeader
     :variant-name="variant?.name"
+    :variant-names="accordionStore.variants.map((v: any) => v.name)"
+    :variant-index="accordionStore.selectedVariantIndex"
     :can-delete="accordionStore.variants.length > 0"
     @update:name="patch({ name: $event })"
     @delete="accordionStore.deleteVariant(accordionStore.selectedVariantIndex)"

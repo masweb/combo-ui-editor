@@ -156,11 +156,11 @@ const useGoogleFonts = () => {
     clearTimeout(searchTimer)
     searchTimer = setTimeout(() => {
       if (!query.trim()) {
-        results.value = allFonts.slice(0, 50)
+        results.value = allFonts.slice(0, 200)
         return
       }
       const q = query.toLowerCase()
-      results.value = allFonts.filter(f => f.family.toLowerCase().includes(q)).slice(0, 50)
+      results.value = allFonts.filter(f => f.family.toLowerCase().includes(q)).slice(0, 200)
     }, 150)
   }
 

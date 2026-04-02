@@ -70,6 +70,7 @@
     "variants": "Variantes",
     "fixed": "Fija",
     "variantName": "Nombre de variante",
+    "duplicateVariantName": "Ya existe una variante con este nombre",
     "fontFamily": "Familia de fuente",
     "fontStyle": "Estilo de fuente",
     "fontWeight": "Peso de fuente",

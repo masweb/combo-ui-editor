@@ -28,6 +28,8 @@ const offsetUpdates = useUnitNumberUpdates(patch, variant, 'offset')
 <template>
   <VariantHeader
     :variant-name="variant?.name"
+    :variant-names="alertStore.variants.map((v: any) => v.name)"
+    :variant-index="alertStore.selectedVariantIndex"
     :can-delete="alertStore.variants.length > 0"
     @update:name="patch({ name: $event })"
     @delete="alertStore.deleteVariant(alertStore.selectedVariantIndex)"
