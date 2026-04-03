@@ -1,17 +1,18 @@
 export const COMPONENT_LIST: ListComponentMeta[] = [
-  { id: 'table', label: 'Table', description: 'Tabular data', icon: 'IconTable' },
-  { id: 'listgroup', label: 'List Group', description: 'List of items', icon: 'IconList' },
   { id: 'button', label: 'Button', description: 'Trigger actions', icon: 'IconXboxB' },
   { id: 'card', label: 'Card', description: 'Content container', icon: 'IconCreditCard' },
+
   { id: 'alert', label: 'Alert', description: 'Feedback messages', icon: 'IconAlertSquareRounded' },
   { id: 'avatar', label: 'Avatar', description: 'User representation', icon: 'IconUserCircle' },
   { id: 'badge', label: 'Badge', description: 'Status indicators', icon: 'IconCodeVariable' },
-  { id: 'divider', label: 'Divider', description: 'Visual separator', icon: 'IconLineDashed' },
-  { id: 'progress', label: 'Progress', description: 'Completion indicator', icon: 'IconEqualDouble' },
   { id: 'chip', label: 'Chip', description: 'Compact info', icon: 'IconInputX' },
-  { id: 'spinner', label: 'Spinner', description: 'Loading state', icon: 'IconInnerShadowTopRight' },
+  { id: 'divider', label: 'Divider', description: 'Visual separator', icon: 'IconLineDashed' },
+  { id: 'table', label: 'Table', description: 'Tabular data', icon: 'IconTable' },
+  { id: 'listgroup', label: 'List Group', description: 'List of items', icon: 'IconList' },
   { id: 'pagination', label: 'Pagination', description: 'Page navigation', icon: 'IconArrowLeftRight' },
-  { id: 'accordion', label: 'Accordion', description: 'Collapsible content', icon: 'IconLayoutList' }
+  { id: 'accordion', label: 'Accordion', description: 'Collapsible content', icon: 'IconLayoutList' },
+  { id: 'progress', label: 'Progress', description: 'Completion indicator', icon: 'IconEqualDouble' },
+  { id: 'spinner', label: 'Spinner', description: 'Loading state', icon: 'IconInnerShadowTopRight' }
 ]
 
 export const COMPONENT_TYPOGRAPHY_META: ListComponentMeta = {

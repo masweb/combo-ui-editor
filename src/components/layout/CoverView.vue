@@ -52,23 +52,27 @@ const textColor = computed(() =>
     <div class="row">
       <div class="col-12 col-xl-6 mb-4">
         <div class="card cursor-pointer" @click="() => (nav.currentComponent = COMPONENT_TYPOGRAPHY_META)">
-          <div class="card-header" :style="{ color: textColor }">{{ t('components.typography') }}</div>
+          <div class="card-header" :style="{ color: textColor }">
+            <b>{{ t('components.typography') }}</b>
+          </div>
           <div class="card-body" :style="{ color: textColor, opacity: 0.8 }">
             <IconTypography :size="80" stroke-width=".9" />
             {{ t('typography.description') }}
           </div>
-          <div class="card-footer" :style="{ color: textColor, opacity: 0.8 }">{{ t('typography.footer') }}</div>
+          <!-- <div class="card-footer" :style="{ color: textColor, opacity: 0.8 }">{{ t('typography.footer') }}</div> -->
         </div>
       </div>
 
       <div class="col-12 col-xl-6 mb-4">
         <div class="card cursor-pointer" @click="() => (nav.currentComponent = COMPONENT_FORM_META)">
-          <div class="card-header" :style="{ color: textColor }">{{ t('components.forms') }}</div>
+          <div class="card-header" :style="{ color: textColor }">
+            <b>{{ t('components.forms') }}</b>
+          </div>
           <div class="card-body" :style="{ color: textColor, opacity: 0.8 }">
             <IconForms :size="80" stroke-width=".9" />
             {{ t('forms.description') }}
           </div>
-          <div class="card-footer" :style="{ color: textColor, opacity: 0.8 }">{{ t('forms.footer') }}</div>
+          <!-- <div class="card-footer" :style="{ color: textColor, opacity: 0.8 }">{{ t('forms.footer') }}</div> -->
         </div>
       </div>
     </div>
@@ -77,13 +81,15 @@ const textColor = computed(() =>
     <div class="row">
       <div class="col-md-4 col-lg-3 col-xl-2" v-for="item in COMPONENT_LIST" :key="item.id">
         <div class="card mb-4 user-select-none cursor-pointer" @click="() => (nav.currentComponent = item)">
-          <div class="card-header text-center" :style="{ color: textColor }">{{ t(`components.${item.id}`) }}</div>
+          <div class="card-header text-center" :style="{ color: textColor }">
+            <b>{{ t(`components.${item.id}`) }}</b>
+          </div>
           <div class="card-body text-center">
             <component :is="icons[item.icon ?? '']" :size="60" stroke-width="1.4" />
           </div>
-          <div class="card-footer text-center" :style="{ color: textColor, opacity: 0.8 }">
+          <!-- <div class="card-footer text-center" :style="{ color: textColor, opacity: 0.8 }">
             {{ t(`components.${item.id}-descr`) }}
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
