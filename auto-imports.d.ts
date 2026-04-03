@@ -134,6 +134,7 @@ declare global {
   const useNavigationStore: typeof import('./src/stores/navigation').useNavigationStore
   const usePaginationStore: typeof import('./src/stores/pagination').usePaginationStore
   const usePersistence: typeof import('./src/composables/usePersistence').usePersistence
+  const usePopoverStore: typeof import('./src/stores/popover').usePopoverStore
   const usePreviewGrid: typeof import('./src/composables/usePreviewGrid').usePreviewGrid
   const useProgressStore: typeof import('./src/stores/progress').useProgressStore
   const useResetForm: typeof import('vee-validate').useResetForm
@@ -237,6 +238,9 @@ declare global {
   // @ts-ignore
   export type { PaginationVariant, DarkPagination } from './src/types/pagination'
   import('./src/types/pagination')
+  // @ts-ignore
+  export type { PopoverPlacement, DarkPopover, PopoverVariant } from './src/types/popover'
+  import('./src/types/popover')
   // @ts-ignore
   export type { ProgressVariant, DarkProgress } from './src/types/progress'
   import('./src/types/progress')

@@ -1,5 +1,5 @@
 export const COMPONENT_LIST: ListComponentMeta[] = [
-  { id: 'button', label: 'Button', description: 'Trigger actions', icon: 'IconXboxB' },
+  { id: 'button', label: 'Button', description: 'Trigger actions', icon: 'IconXboxBFilled' },
   { id: 'card', label: 'Card', description: 'Content container', icon: 'IconCreditCard' },
 
   { id: 'alert', label: 'Alert', description: 'Feedback messages', icon: 'IconAlertSquareRounded' },
@@ -7,6 +7,7 @@ export const COMPONENT_LIST: ListComponentMeta[] = [
   { id: 'badge', label: 'Badge', description: 'Status indicators', icon: 'IconCodeVariable' },
   { id: 'chip', label: 'Chip', description: 'Compact info', icon: 'IconInputX' },
   { id: 'tooltip', label: 'Tooltip', description: 'Contextual hints', icon: 'IconTooltip' },
+  { id: 'popover', label: 'Popover', description: 'Rich floating content', icon: 'IconLayoutList' },
   { id: 'divider', label: 'Divider', description: 'Visual separator', icon: 'IconLineDashed' },
   { id: 'table', label: 'Table', description: 'Tabular data', icon: 'IconTable' },
   { id: 'listgroup', label: 'List Group', description: 'List of items', icon: 'IconList' },
