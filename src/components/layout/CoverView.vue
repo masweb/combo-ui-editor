@@ -2,7 +2,7 @@
 import { COMPONENT_LIST, COMPONENT_TYPOGRAPHY_META, COMPONENT_FORM_META } from '@/constants'
 
 import {
-  IconXboxB,
+  IconXboxBFilled,
   IconCreditCard,
   IconAlertSquareRounded,
   IconUserCircle,
@@ -20,7 +20,7 @@ import {
   IconTooltip
 } from '@tabler/icons-vue'
 const icons: Record<string, Component> = {
-  IconXboxB,
+  IconXboxBFilled,
   IconCreditCard,
   IconAlertSquareRounded,
   IconUserCircle,
@@ -94,6 +94,10 @@ const textColor = computed(() =>
           </div> -->
         </div>
       </div>
+    </div>
+    <div class="p-4 d-flex flex-row align-items-center">
+      <img src="/comboui.svg" width="120" />
+      <h1 class="display-3 ms-2">Editor</h1>
     </div>
   </div>
 </template>

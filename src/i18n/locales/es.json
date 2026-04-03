@@ -10,6 +10,8 @@
     "chip-descr": "Info compacta",
     "tooltip": "Tooltip",
     "tooltip-descr": "Ayudas contextuales",
+    "popover": "Popover",
+    "popover-descr": "Contenido flotante enriquecido",
     "spinner": "Indicador de carga",
     "spinner-descr": "Estado de carga",
     "progress": "Barra de progreso",

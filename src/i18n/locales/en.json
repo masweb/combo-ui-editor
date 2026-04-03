@@ -10,6 +10,8 @@
     "chip-descr": "Closable compact info",
     "tooltip": "Tooltip",
     "tooltip-descr": "Contextual hints",
+    "popover": "Popover",
+    "popover-descr": "Rich floating content",
     "spinner": "Spinner",
     "spinner-descr": "Loading state",
     "progress": "Progress",
