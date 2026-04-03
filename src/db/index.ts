@@ -5,6 +5,7 @@ import type { CardVariant } from '@/types/card'
 import type { AlertVariant } from '@/types/alert'
 import type { BadgeVariant } from '@/types/badge'
 import type { ChipVariant } from '@/types/chip'
+import type { TooltipVariant } from '@/types/tooltip'
 import type { ProgressVariant } from '@/types/progress'
 import type { SpinnerVariant } from '@/types/spinner'
 import type { AvatarVariant } from '@/types/avatar'
@@ -53,6 +54,7 @@ export class ComboUXDatabase extends Dexie {
   alerts!: EntityTable<ComponentData<AlertVariant>, 'id'>
   badges!: EntityTable<ComponentData<BadgeVariant>, 'id'>
   chips!: EntityTable<ComponentData<ChipVariant>, 'id'>
+  tooltips!: EntityTable<ComponentData<TooltipVariant>, 'id'>
   progress!: EntityTable<ComponentData<ProgressVariant>, 'id'>
   spinners!: EntityTable<ComponentData<SpinnerVariant>, 'id'>
   avatars!: EntityTable<ComponentData<AvatarVariant>, 'id'>
@@ -74,6 +76,7 @@ export class ComboUXDatabase extends Dexie {
       alerts: 'id',
       badges: 'id',
       chips: 'id',
+      tooltips: 'id',
       progress: 'id',
       spinners: 'id',
       avatars: 'id',
@@ -96,6 +99,7 @@ export const COMPONENT_STORE_MAP: Record<string, keyof ComboUXDatabase> = {
   alert: 'alerts',
   badge: 'badges',
   chip: 'chips',
+  tooltip: 'tooltips',
   progress: 'progress',
   spinner: 'spinners',
   avatar: 'avatars',
