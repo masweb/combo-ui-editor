@@ -6,6 +6,7 @@ export const COMPONENT_LIST: ListComponentMeta[] = [
   { id: 'avatar', label: 'Avatar', description: 'User representation', icon: 'IconUserCircle' },
   { id: 'badge', label: 'Badge', description: 'Status indicators', icon: 'IconCodeVariable' },
   { id: 'chip', label: 'Chip', description: 'Compact info', icon: 'IconInputX' },
+  { id: 'tooltip', label: 'Tooltip', description: 'Contextual hints', icon: 'IconTooltip' },
   { id: 'divider', label: 'Divider', description: 'Visual separator', icon: 'IconLineDashed' },
   { id: 'table', label: 'Table', description: 'Tabular data', icon: 'IconTable' },
   { id: 'listgroup', label: 'List Group', description: 'List of items', icon: 'IconList' },

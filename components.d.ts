@@ -66,6 +66,8 @@ declare module 'vue' {
     TextAlignField: typeof import('./src/components/settings/fields/TextAlignField.vue')['default']
     ThemeSyncToggle: typeof import('./src/components/layout/ThemeSyncToggle.vue')['default']
     ThemeToggle: typeof import('./src/components/shared/ThemeToggle.vue')['default']
+    Tooltip: typeof import('./src/components/previews/Tooltip.vue')['default']
+    TooltipSettings: typeof import('./src/components/settings/TooltipSettings.vue')['default']
     Typography: typeof import('./src/components/previews/Typography.vue')['default']
     TypographyFields: typeof import('./src/components/shared/TypographyFields.vue')['default']
     TypographySettings: typeof import('./src/components/settings/TypographySettings.vue')['default']

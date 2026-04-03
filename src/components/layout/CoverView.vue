@@ -16,7 +16,8 @@ import {
   IconTable,
   IconList,
   IconArrowLeftRight,
-  IconLayoutList
+  IconLayoutList,
+  IconTooltip
 } from '@tabler/icons-vue'
 const icons: Record<string, Component> = {
   IconXboxB,
@@ -31,7 +32,8 @@ const icons: Record<string, Component> = {
   IconTable,
   IconList,
   IconArrowLeftRight,
-  IconLayoutList
+  IconLayoutList,
+  IconTooltip
 }
 const { t } = useI18n()
 const { isDark } = useTheme()

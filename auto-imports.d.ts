@@ -151,6 +151,7 @@ declare global {
   const useThemeStore: typeof import('./src/stores/theme').useThemeStore
   const useThemeSync: typeof import('./src/composables/useThemeSync').useThemeSync
   const useThemeSyncLog: typeof import('./src/composables/useThemeSyncLog').useThemeSyncLog
+  const useTooltipStore: typeof import('./src/stores/tooltip').useTooltipStore
   const useTypographyPersistence: typeof import('./src/composables/useTypographyPersistence').useTypographyPersistence
   const useTypographyStore: typeof import('./src/stores/typography').useTypographyStore
   const useUnitNumberUpdates: typeof import('./src/composables/useUnitNumberUpdates').useUnitNumberUpdates
@@ -251,6 +252,9 @@ declare global {
   // @ts-ignore
   export type { ThemeComponentData, ThemeTypographyData, ThemeFormsData, ThemeData } from './src/types/theme'
   import('./src/types/theme')
+  // @ts-ignore
+  export type { DarkTooltip, TooltipPlacement, TooltipVariant } from './src/types/tooltip'
+  import('./src/types/tooltip')
   // @ts-ignore
   export type { TypographyVariantName, TypographyValue, DarkTypographyValue, TypographyGlobalConfig, TypographyVariant, TypographyVariants } from './src/types/typography'
   import('./src/types/typography')
