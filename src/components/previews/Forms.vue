@@ -296,18 +296,23 @@ const getSliderStyles = () => {
 
 <template>
   <div class="forms-preview p-4">
-    <div class="state-selector mb-4 d-flex justify-content-center gap-2">
-      <div class="btn-group" role="group">
-        <button
-          v-for="s in states"
-          :key="s.value"
-          type="button"
-          class="btn"
-          :class="formsStore.currentState === s.value ? 'btn-primary' : 'btn-outline-secondary'"
-          @click="formsStore.setState(s.value)"
-        >
-          {{ s.label }}
-        </button>
+    <div class="state-selector mb-4 d-flex justify-content-center gap-3">
+      <div
+        v-for="s in states"
+        :key="s.value"
+        :style="getCompensation()"
+        class="form-check form-check-inline form-check-lg"
+      >
+        <input
+          :id="'state-' + s.value"
+          type="radio"
+          class="form-check-input"
+          name="state-selector"
+          :value="s.value"
+          :checked="formsStore.currentState === s.value"
+          @change="formsStore.setState(s.value)"
+        />
+        <label class="form-check-label" :for="'state-' + s.value">{{ s.label }}</label>
       </div>
     </div>
 
