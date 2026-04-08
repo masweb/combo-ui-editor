@@ -3,37 +3,37 @@ import { COMPONENT_LIST, COMPONENT_TYPOGRAPHY_META, COMPONENT_FORM_META } from '
 
 import {
   IconXboxBFilled,
-  IconCreditCard,
-  IconAlertSquareRounded,
-  IconUserCircle,
-  IconCodeVariable,
+  IconCreditCardFilled,
+  IconAlertCircleFilled,
+  IconUserFilled,
+  IconRectangleFilled,
   IconLineDashed,
-  IconEqualDouble,
-  IconInputX,
+  IconCircleRectangleFilled,
   IconInnerShadowTopRight,
   IconTypography,
   IconForms,
-  IconTable,
-  IconList,
-  IconArrowLeftRight,
-  IconLayoutList,
-  IconTooltip
+  IconTableFilled,
+  IconListFilled,
+  IconCaretLeftRightFilled,
+  IconTooltip,
+  IconLayoutListFilled,
+  IconChartFunnelFilled
 } from '@tabler/icons-vue'
 const icons: Record<string, Component> = {
   IconXboxBFilled,
-  IconCreditCard,
-  IconAlertSquareRounded,
-  IconUserCircle,
-  IconCodeVariable,
+  IconCreditCardFilled,
+  IconAlertCircleFilled,
+  IconUserFilled,
+  IconRectangleFilled,
   IconLineDashed,
-  IconEqualDouble,
-  IconInputX,
+  IconCircleRectangleFilled,
   IconInnerShadowTopRight,
-  IconTable,
-  IconList,
-  IconArrowLeftRight,
-  IconLayoutList,
-  IconTooltip
+  IconTableFilled,
+  IconListFilled,
+  IconCaretLeftRightFilled,
+  IconTooltip,
+  IconLayoutListFilled,
+  IconChartFunnelFilled
 }
 const { t } = useI18n()
 const { isDark } = useTheme()

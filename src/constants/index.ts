@@ -1,19 +1,18 @@
 export const COMPONENT_LIST: ListComponentMeta[] = [
   { id: 'button', label: 'Button', description: 'Trigger actions', icon: 'IconXboxBFilled' },
-  { id: 'card', label: 'Card', description: 'Content container', icon: 'IconCreditCard' },
+  { id: 'card', label: 'Card', description: 'Content container', icon: 'IconCreditCardFilled' },
 
-  { id: 'alert', label: 'Alert', description: 'Feedback messages', icon: 'IconAlertSquareRounded' },
-  { id: 'avatar', label: 'Avatar', description: 'User representation', icon: 'IconUserCircle' },
-  { id: 'badge', label: 'Badge', description: 'Status indicators', icon: 'IconCodeVariable' },
-  { id: 'chip', label: 'Chip', description: 'Compact info', icon: 'IconInputX' },
+  { id: 'alert', label: 'Alert', description: 'Feedback messages', icon: 'IconAlertCircleFilled' },
+  { id: 'avatar', label: 'Avatar', description: 'User representation', icon: 'IconUserFilled' },
+  { id: 'badge', label: 'Badge', description: 'Status indicators', icon: 'IconRectangleFilled' },
+  { id: 'chip', label: 'Chip', description: 'Compact info', icon: 'IconCircleRectangleFilled' },
   { id: 'tooltip', label: 'Tooltip', description: 'Contextual hints', icon: 'IconTooltip' },
-  { id: 'popover', label: 'Popover', description: 'Rich floating content', icon: 'IconLayoutList' },
-  { id: 'divider', label: 'Divider', description: 'Visual separator', icon: 'IconLineDashed' },
-  { id: 'table', label: 'Table', description: 'Tabular data', icon: 'IconTable' },
-  { id: 'listgroup', label: 'List Group', description: 'List of items', icon: 'IconList' },
-  { id: 'pagination', label: 'Pagination', description: 'Page navigation', icon: 'IconArrowLeftRight' },
-  { id: 'accordion', label: 'Accordion', description: 'Collapsible content', icon: 'IconLayoutList' },
-  { id: 'progress', label: 'Progress', description: 'Completion indicator', icon: 'IconEqualDouble' },
+  { id: 'popover', label: 'Popover', description: 'Rich floating content', icon: 'IconTooltip' },
+  { id: 'table', label: 'Table', description: 'Tabular data', icon: 'IconTableFilled' },
+  { id: 'listgroup', label: 'List Group', description: 'List of items', icon: 'IconListFilled' },
+  { id: 'pagination', label: 'Pagination', description: 'Page navigation', icon: 'IconCaretLeftRightFilled' },
+  { id: 'accordion', label: 'Accordion', description: 'Collapsible content', icon: 'IconLayoutListFilled' },
+  { id: 'progress', label: 'Progress', description: 'Completion indicator', icon: 'IconChartFunnelFilled' },
   { id: 'spinner', label: 'Spinner', description: 'Loading state', icon: 'IconInnerShadowTopRight' }
 ]
 
