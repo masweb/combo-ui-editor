@@ -3,7 +3,7 @@
 // Generación de URLs de Google Fonts y inyección de <link>.
 // El conjunto `injectedFamilies` se mantiene dentro del módulo para evitar duplicados.
 
-const injectedFamilies = new Set<string>()
+const injectedFamilies = new Map<string, { element: HTMLLinkElement; weights: Set<string> }>()
 
 /**
  * Construye la URL de Google Fonts para la familia y variantes indicadas.
@@ -49,12 +49,21 @@ export const generateFontUrl = (family: string, variants: string[]): string => {
  */
 export const injectFontLink = (family: string, variants: string[]): void => {
   if (!variants.length) return
-  if (injectedFamilies.has(family)) return
+
+  const existing = injectedFamilies.get(family)
+  if (existing) {
+    const newVariants = variants.filter(v => !existing.weights.has(v))
+    if (newVariants.length === 0) return
+
+    for (const v of newVariants) existing.weights.add(v)
+    existing.element.href = generateFontUrl(family, [...existing.weights])
+    return
+  }
 
   const url = generateFontUrl(family, variants)
   const link = document.createElement('link')
   link.rel = 'stylesheet'
   link.href = url
   document.head.appendChild(link)
-  injectedFamilies.add(family)
+  injectedFamilies.set(family, { element: link, weights: new Set(variants) })
 }

@@ -12,3 +12,10 @@ app.use(i18n)
 app.directive('wheel-number', vWheelNumber)
 
 app.mount('#app')
+
+// Fade out splash overlay once Vue is mounted
+const splash = document.getElementById('splash')
+if (splash) {
+  splash.classList.add('fade-out')
+  splash.addEventListener('transitionend', () => splash.remove())
+}

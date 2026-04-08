@@ -48,8 +48,9 @@ export const useTypographyPersistence = (
             loadGoogleFont(data.globalConfig.fontFamily)
           }
           for (const v of data.variants) {
-            if (v.fontFamily) {
-              loadGoogleFont(v.fontFamily, v.fontStyle, v.fontWeight)
+            const family = v.fontFamily || data.globalConfig.fontFamily
+            if (family) {
+              loadGoogleFont(family, v.fontStyle, v.fontWeight)
             }
           }
         }
@@ -122,9 +123,11 @@ export const useTypographyPersistence = (
   watch(
     variants,
     newVariants => {
+      const globalFamily = globalConfig.value.fontFamily
       for (const v of newVariants) {
-        if (v.fontFamily) {
-          loadGoogleFont(v.fontFamily, v.fontStyle, v.fontWeight)
+        const family = v.fontFamily || globalFamily
+        if (family) {
+          loadGoogleFont(family, v.fontStyle, v.fontWeight)
         }
       }
     },

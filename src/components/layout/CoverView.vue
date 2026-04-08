@@ -52,7 +52,7 @@ const textColor = computed(() =>
 <template>
   <div class="cover-view" :style="{ backgroundColor: previewBackground }">
     <div class="row">
-      <div class="col-12 col-xl-6 mb-4">
+      <div class="col-12 col-md-6 mb-4">
         <div class="card cursor-pointer" @click="() => (nav.currentComponent = COMPONENT_TYPOGRAPHY_META)">
           <div class="card-header" :style="{ color: textColor }">
             <b>{{ t('components.typography') }}</b>
@@ -65,7 +65,7 @@ const textColor = computed(() =>
         </div>
       </div>
 
-      <div class="col-12 col-xl-6 mb-4">
+      <div class="col-12 col-md-6 mb-4">
         <div class="card cursor-pointer" @click="() => (nav.currentComponent = COMPONENT_FORM_META)">
           <div class="card-header" :style="{ color: textColor }">
             <b>{{ t('components.forms') }}</b>
@@ -95,9 +95,9 @@ const textColor = computed(() =>
         </div>
       </div>
     </div>
-    <div class="p-4 d-flex flex-row align-items-center">
+    <!-- <div class="p-4 d-flex flex-row align-items-center">
       <img src="/comboui.svg" width="120" />
       <h1 class="display-3 ms-2">Editor</h1>
-    </div>
+    </div> -->
   </div>
 </template>

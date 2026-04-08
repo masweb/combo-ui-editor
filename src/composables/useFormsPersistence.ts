@@ -115,7 +115,9 @@ export const useFormsPersistence = (defaultGlobalConfig: FormsGlobalConfig, defa
     loadFromDB,
     clearFromMemory,
     variants,
-    selectedVariantIndex
+    selectedVariantIndex,
+    globalConfig,
+    currentState
   })
 
   void loadFromDB()
