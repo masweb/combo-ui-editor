@@ -3,8 +3,6 @@ import { storeManager } from './useStoreManager.js'
 import { loadGoogleFont } from './useGoogleFonts.js'
 import { useTypographyStore, getTypographyDefaults } from '@/stores/typography'
 import { useFormsStore, getFormsDefaults } from '@/stores/forms'
-import { generateReadme } from './useReadmeGenerator'
-import JSZip from 'jszip'
 import { save } from '@tauri-apps/plugin-dialog'
 import { writeFile } from '@tauri-apps/plugin-fs'
 
@@ -100,41 +98,32 @@ export const useThemeIO = () => {
     try {
       const themeData = await buildThemeData(name)
       const json = JSON.stringify(themeData, null, 2)
-      const readme = generateReadme(themeData)
 
-      // Create ZIP with JSON and README
-      const zip = new JSZip()
-      zip.file(`${name}.json`, json)
-      zip.file('README.md', readme)
+      const encoder = new TextEncoder()
+      const uint8Array = encoder.encode(json)
 
-      // Generate ZIP as Uint8Array
-      const uint8Array = await zip.generateAsync({ type: 'uint8array' })
-
-      // Try Tauri native save dialog first
       if (window.__TAURI_INTERNALS__) {
         const filePath = await save({
-          defaultPath: `${name}.zip`,
-          filters: [{ name: 'ZIP Archive', extensions: ['zip'] }]
+          defaultPath: `${name}.json`,
+          filters: [{ name: 'JSON', extensions: ['json'] }]
         })
-        if (!filePath) return false // User cancelled
+        if (!filePath) return false
         await writeFile(filePath, uint8Array)
       } else if (window.showSaveFilePicker) {
-        // Browser fallback: File System Access API (Chrome/Edge)
-        const blob = new Blob([uint8Array], { type: 'application/zip' })
+        const blob = new Blob([json], { type: 'application/json' })
         const handle = await window.showSaveFilePicker({
-          suggestedName: `${name}.zip`,
-          types: [{ description: 'ZIP Archive', accept: { 'application/zip': ['.zip'] } }]
+          suggestedName: `${name}.json`,
+          types: [{ description: 'JSON', accept: { 'application/json': ['.json'] } }]
         })
         const writable = await handle.createWritable()
         await writable.write(blob)
         await writable.close()
       } else {
-        // Browser fallback: download link
-        const blob = new Blob([uint8Array], { type: 'application/zip' })
+        const blob = new Blob([json], { type: 'application/json' })
         const url = URL.createObjectURL(blob)
         const link = document.createElement('a')
         link.href = url
-        link.download = `${name}.zip`
+        link.download = `${name}.json`
         document.body.appendChild(link)
         link.click()
         document.body.removeChild(link)
