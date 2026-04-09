@@ -19,7 +19,7 @@ const defaultCellPadding = createPadding(true, true, 'px', 8, 12, 8, 12)
 const defaultHorizontalBorder = createBorder('solid', 1, '#dee2e6')
 const defaultVerticalBorder = createBorder('solid', 1, '#dee2e6')
 
-const createDefaultVariant = (name: string): TableVariant => ({
+export const createDefaultVariant = (name: string): TableVariant => ({
   name,
   background: '#ffffff',
   color: '#212529',

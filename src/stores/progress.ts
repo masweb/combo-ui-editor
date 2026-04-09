@@ -7,7 +7,7 @@ const defaultBorderRadius = createBorderRadius(true, 'px', 10)
 const defaultHeight = createUnitNumber(20)
 const defaultLabelFontSize = createUnitNumber(12)
 
-const createDefaultVariant = (name: string): ProgressVariant => ({
+export const createDefaultVariant = (name: string): ProgressVariant => ({
   name,
   background: 'transparent',
   border: { ...defaultBorder },

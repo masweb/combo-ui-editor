@@ -192,6 +192,25 @@
     "save": "Guardar tema",
     "warningUnsaved": "Las variantes creadas se perderán si no ha guardado el tema. ¿Desea continuar?"
   },
+  "themeGenerator": {
+    "title": "Generador de temas",
+    "themeName": "Nombre del tema",
+    "generate": "Generar tema",
+    "addColorPair": "Añadir par de colores",
+    "globalSettings": "Configuración global",
+    "typography": "Tipografía",
+    "fontFamily": "Familia de fuente",
+    "color": "Color de texto",
+    "backgroundColor": "Color de fondo",
+    "darkColor": "Color texto oscuro",
+    "darkBackgroundColor": "Fondo oscuro",
+    "borderRadius": "Radio de borde global",
+    "shadows": "Sombras",
+    "enableShadow": "Sombra",
+    "enableInsetShadow": "Sombra interior",
+    "enableInsetHighlight": "Brillo interior",
+    "preview": "Vista previa"
+  },
   "settings": {
     "title": "Configuración",
     "language": "Idioma",

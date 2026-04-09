@@ -81,6 +81,11 @@ body {
   }
 }
 
+[data-coreui-theme='light'] {
+  --cui-black: #333333;
+  --cui-black-rgb: #333333;
+}
+
 [data-coreui-theme='dark'] {
   --cui-body-bg: #222222;
   --cui-body-bg-rgb: 34, 34, 34;

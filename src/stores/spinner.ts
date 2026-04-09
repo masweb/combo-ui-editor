@@ -5,7 +5,7 @@ import type { SpinnerVariant } from '@/types/spinner'
 const defaultBorder = createBorder('solid', 4, '#0d6efd')
 const defaultSize = createUnitNumber(40)
 
-const createDefaultVariant = (name: string): SpinnerVariant => ({
+export const createDefaultVariant = (name: string): SpinnerVariant => ({
   name,
   type: 'ring',
   color: '#0d6efd',

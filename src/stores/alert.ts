@@ -20,7 +20,7 @@ const defaultCloseSize = createUnitNumber(20)
 const defaultMaxWidth = createUnitNumber(500)
 const defaultOffset = createUnitNumber(16)
 
-const createDefaultVariant = (name: string): AlertVariant => ({
+export const createDefaultVariant = (name: string): AlertVariant => ({
   name,
   background: '#d1ecf1',
   color: '#0c5460',

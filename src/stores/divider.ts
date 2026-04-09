@@ -6,7 +6,7 @@ const defaultBorder = createBorder('solid', 1, '#333333')
 const defaultWidth: DividerWidthValue = { value: 100, unit: '%' }
 const defaultSpacing = createUnitNumber(16)
 
-const createDefaultVariant = (name: string): DividerVariant => ({
+export const createDefaultVariant = (name: string): DividerVariant => ({
   name,
   border: { ...defaultBorder },
   width: { ...defaultWidth },

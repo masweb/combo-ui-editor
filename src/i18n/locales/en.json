@@ -192,6 +192,25 @@
     "save": "Save theme",
     "warningUnsaved": "Created variants will be lost if you haven't saved the theme. Do you want to continue?"
   },
+  "themeGenerator": {
+    "title": "Theme Generator",
+    "themeName": "Theme Name",
+    "generate": "Generate Theme",
+    "addColorPair": "Add Color Pair",
+    "globalSettings": "Global Settings",
+    "typography": "Typography",
+    "fontFamily": "Font Family",
+    "color": "Text Color",
+    "backgroundColor": "Background Color",
+    "darkColor": "Dark Text Color",
+    "darkBackgroundColor": "Dark Background",
+    "borderRadius": "Global Border Radius",
+    "shadows": "Shadows",
+    "enableShadow": "Shadow",
+    "enableInsetShadow": "Inset Shadow",
+    "enableInsetHighlight": "Inset Highlight",
+    "preview": "Preview"
+  },
   "settings": {
     "title": "Settings",
     "language": "Language",

@@ -25,6 +25,7 @@ declare global {
   const configure: typeof import('vee-validate').configure
   const createApp: typeof import('vue').createApp
   const createComponentStore: typeof import('./src/composables/useComponentStoreFactory').createComponentStore
+  const createDefaultVariant: typeof import('./src/stores/tooltip').createDefaultVariant
   const createPinia: typeof import('pinia').createPinia
   const customRef: typeof import('vue').customRef
   const db: typeof import('./src/db/index').db
@@ -103,6 +104,7 @@ declare global {
   const useButtonStore: typeof import('./src/stores/button').useButtonStore
   const useCardStore: typeof import('./src/stores/card').useCardStore
   const useChipStore: typeof import('./src/stores/chip').useChipStore
+  const useColorPairEditor: typeof import('./src/composables/useColorPairEditor').useColorPairEditor
   const useComponentRegistry: typeof import('./src/composables/useComponentRegistry').useComponentRegistry
   const useComponentTheme: typeof import('./src/composables/useComponentTheme').useComponentTheme
   const useCssModule: typeof import('vue').useCssModule
@@ -148,6 +150,7 @@ declare global {
   const useTemplateRef: typeof import('vue').useTemplateRef
   const useTheme: typeof import('./src/composables/useTheme').useTheme
   const useThemeCompensation: typeof import('./src/composables/useThemeCompensation').useThemeCompensation
+  const useThemeGenerator: typeof import('./src/composables/useThemeGenerator').useThemeGenerator
   const useThemeIO: typeof import('./src/composables/useThemeIO').useThemeIO
   const useThemeStore: typeof import('./src/stores/theme').useThemeStore
   const useThemeSync: typeof import('./src/composables/useThemeSync').useThemeSync
@@ -173,6 +176,9 @@ declare global {
   export type { Component, Slot, Slots, ComponentPublicInstance, ComputedRef, DirectiveBinding, ExtractDefaultPropTypes, ExtractPropTypes, ExtractPublicPropTypes, InjectionKey, PropType, Ref, ShallowRef, MaybeRef, MaybeRefOrGetter, VNode, WritableComputedRef } from 'vue'
   import('vue')
   // @ts-ignore
+  export type { ColorPair } from './src/composables/useColorPairEditor'
+  import('./src/composables/useColorPairEditor')
+  // @ts-ignore
   export type { ComponentThemeOptions } from './src/composables/useComponentTheme'
   import('./src/composables/useComponentTheme')
   // @ts-ignore
@@ -190,6 +196,9 @@ declare global {
   // @ts-ignore
   export type { ThemeCompensation } from './src/composables/useThemeCompensation'
   import('./src/composables/useThemeCompensation')
+  // @ts-ignore
+  export type { ThemeGeneratorOptions } from './src/composables/useThemeGenerator'
+  import('./src/composables/useThemeGenerator')
   // @ts-ignore
   export type { LogEntry } from './src/composables/useThemeSyncLog'
   import('./src/composables/useThemeSyncLog')

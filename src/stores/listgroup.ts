@@ -13,7 +13,7 @@ const defaultBorderRadius = createBorderRadius(true, 'px', 6)
 const defaultFontSize = createFontSize(14)
 const defaultPadding = createPadding(true, true, 'px', 10, 16, 10, 16)
 
-const createDefaultVariant = (name: string): ListGroupVariant => ({
+export const createDefaultVariant = (name: string): ListGroupVariant => ({
   name,
   background: '#ffffff',
   color: '#212529',

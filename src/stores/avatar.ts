@@ -13,7 +13,7 @@ const defaultBorderRadius = createBorderRadius(true, '%', 50)
 const defaultPadding = createPadding(true, true, 'px', 0, 0, 0, 0)
 const defaultFontSize = createFontSize(24)
 
-const createDefaultVariant = (name: string): AvatarVariant => ({
+export const createDefaultVariant = (name: string): AvatarVariant => ({
   name,
   size: { value: 64, unit: 'px' },
   showImage: false,

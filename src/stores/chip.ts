@@ -15,7 +15,7 @@ const defaultPadding = createPadding(true, true, 'px', 6, 12, 6, 12)
 const defaultFontSize = createFontSize(14)
 const defaultCloseSize = createUnitNumber(16)
 
-const createDefaultVariant = (name: string): ChipVariant => ({
+export const createDefaultVariant = (name: string): ChipVariant => ({
   name,
   background: '#e9ecef',
   color: '#333333',

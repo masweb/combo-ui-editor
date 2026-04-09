@@ -13,7 +13,7 @@ const defaultBorderRadius = createBorderRadius(true, 'px', 20)
 const defaultPadding = createPadding(true, true, 'px', 6, 12, 6, 12)
 const defaultFontSize = createFontSize(12)
 
-const createDefaultVariant = (name: string): BadgeVariant => ({
+export const createDefaultVariant = (name: string): BadgeVariant => ({
   name,
   background: '#0d6efd',
   color: '#ffffff',

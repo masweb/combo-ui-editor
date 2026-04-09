@@ -17,7 +17,7 @@ const defaultFontSize = createFontSize(13)
 const defaultArrowSize = createUnitNumber(6)
 const defaultMaxWidth = createUnitNumber(200)
 
-const createDefaultVariant = (name: string): TooltipVariant => ({
+export const createDefaultVariant = (name: string): TooltipVariant => ({
   name,
   placement: 'top',
   background: '#333333',

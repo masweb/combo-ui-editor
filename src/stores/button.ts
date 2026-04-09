@@ -13,7 +13,7 @@ const defaultBorderRadius = createBorderRadius(true, 'px', 6)
 const defaultPadding = createPadding(true, true, 'px', 10, 20, 10, 20)
 const defaultFontSize = createFontSize(14)
 
-const createDefaultVariant = (name: string): ButtonVariant => ({
+export const createDefaultVariant = (name: string): ButtonVariant => ({
   name,
   background: '#0d6efd',
   color: '#ffffff',

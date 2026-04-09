@@ -16,7 +16,7 @@ const defaultHeaderBorderBottom = createBorder('solid', 1, '#dee2e6')
 const defaultFontSize = createFontSize(14)
 const defaultHeaderFontSize = createFontSize(16)
 
-const createDefaultVariant = (name: string): CardVariant => ({
+export const createDefaultVariant = (name: string): CardVariant => ({
   name,
   background: '#ffffff',
   color: '#212529',

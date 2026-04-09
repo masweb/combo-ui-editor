@@ -13,7 +13,7 @@ const defaultBorderRadius = createBorderRadius(true, 'px', 6)
 const defaultFontSize = createFontSize(14)
 const defaultPadding = createPadding(true, true, 'px', 6, 12, 6, 12)
 
-const createDefaultVariant = (name: string): PaginationVariant => ({
+export const createDefaultVariant = (name: string): PaginationVariant => ({
   name,
   background: '#ffffff',
   color: '#0d6efd',
