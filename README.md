@@ -1,42 +1,154 @@
-# COMBO-UI Editor
+# Combo UI Editor
 
-![alt text](https://vida.guillermovalentin.es/combo/comboui.svg)
-#
-### COMBO-UI se compone de un editor de componentes UI y varios paquetes npm que permiten utilizar los diseños de temas en tu App frontend y ver los cambios   en tiempo real.
+<img src="https://vida.guillermovalentin.es/combo/comboui.svg" width="128" height="128" alt="Combo UI" align="right" />
 
-1. Creas el tema en el editor.
-2. Instalas COMBO-UI en tu app como paquete npm.
-3. Creas la páginas de tu App.
-4. Cambia el diseño del tema mientras ves los cambios en tu propia app.
+A visual design system editor that lets you create, customize, and sync UI component themes in real-time across your Vue, React, Angular, and Vanilla JS applications.
 
-## Descarga del editor
+**[Download the Editor](https://github.com/masweb/combo-ui-editor/releases/)** · **[View on GitHub](https://github.com/masweb/combo-ui-editor)**
 
-[Releases](https://github.com/masweb/combo-ui-editor/releases/)
+---
 
+## How It Works
 
-### Previsualización de cambios en vivo
+1. **Design** — Open the desktop editor and visually configure your components: colors, typography, borders, shadows, and more.
+2. **Install** — Add the combo-ui package for your framework as an npm dependency.
+3. **Build** — Create your app pages using combo-ui CSS classes. Components render with your theme styles automatically.
+4. **Sync** — Edit your theme live while watching changes in your own app in real-time.
+5. **Ship** — When your theme is ready, export the JSON and bundle it with your app.
 
-COMBO-UI puede conectar el editor donde tenga instalado su paquete combo-ui-xxx, activando la edición en vivo puede ver el  resultado de sus cambios directamenter en la App cliente.
+---
 
-### Alto nivel de personalización
+## Features
 
-COMBO-UI permite un alto nivel de personalización en todos los componentes, desde Typhopgraphy se puede controlar la tipografía de todos los componentes, pero también se puede elegir tipografías diferentes a nivel de componente o de formulario.
+### Theme Generator
 
-### Preparado para temas con muchísimas variantes
+Add dark/light color pairs and auto-generate a complete theme with consistent variants across every component. Choose typography, border radius, and external/internal shadows for all components in a single motion.
 
-COMBO-UI permite crear temas con un número indefinido de variantes por componente, la App está diseñada para no cargar en memoria todos los componentes con sus variantes al mismo tiempo, solo carga en memoria las varinates del componente que estamos editando en el momento.
+### Live Preview
 
-### Persistencia
+Connect the editor to any app running combo-ui-vue, combo-ui-react, or combo-ui-angular via WebSocket. Enable live editing and see the result of your changes directly in the client app — no page reload needed.
 
-COMBO-UI tiene autosave de manera fija, todos los cambios que realice persisten en memoria mediante el uso de IndexDB.
+```
+Editor (Tauri 2 Desktop App)
+  │  Dexie hooks → debounced buildThemeData() → WebSocket
+  ▼
+theme-sync-server (port 3001)
+  │  Stores current theme, broadcasts to all connected clients
+  ├──► Vue runtime — ComboUIPlugin → regenerate CSS
+  └──► Vanilla runtime — ComboUX → regenerate CSS
+```
 
-### Dark mode
+Changes are debounced at 300ms, with `broadcastImmediate()` available for real-time color adjustments that skip the debounce.
 
-Por defecto todos los temas tienen soporte para Dark Mode, en los paquete dispone de un ThemeToggler que puede usar y personalizar a su gusto, además el Dark/Light mode es compatible con el sistema de VueUSe y Tailwind.
+### Dark Mode Built-in
 
+Every theme comes with dark mode support out of the box. Packages include a customizable `ThemeToggler` component compatible with VueUse and Tailwind dark mode conventions.
 
-### Librería BASSCSS y Reset
+### Multi-Framework
 
-[BASSCSS](https://basscss.com/)
+| Package | Framework | Status |
+|---------|-----------|--------|
+| combo-ui-vue | Vue 3 | Available |
+| combo-ux-vanilla | Vanilla JS | Planned |
+| combo-ui-react | React | Planned |
+| combo-ui-angular | Angular | Planned |
 
-Por defecto todos los temas tienen instalada esta librería de utilidades css con las que puede diseñar sus plantillas de una manera más rápida, también integra un reset para óptimizción de los estilos.
+All packages consume the same theme JSON, so you can share designs across your entire stack.
+
+### Unlimited Variants
+
+Create themes with an unlimited number of variants per component. The editor is designed to keep a low memory footprint — it only loads variants for the component you're actively editing, not all components at once.
+
+### Typography Control
+
+Manage fonts, sizes, weights, and line-heights globally from the Typography panel, or override per-component and per-form. Google Fonts are loaded automatically from the theme data.
+
+### Auto-Save Persistence
+
+All changes persist automatically to IndexedDB via Dexie. Never lose your work — close the editor and resume anytime.
+
+### BASSCSS & Reset
+
+All themes include [BASSCSS](https://basscss.com/) utility classes for rapid template design, plus a CSS reset for consistent cross-browser rendering.
+
+---
+
+## Supported Components
+
+| Component | Editor | CSS Generation | Vue Component |
+|-----------|--------|---------------|---------------|
+| Typography | Yes | Yes | — |
+| Forms | Yes | Yes | — |
+| Button | Yes | Yes | — |
+| Card | Yes | Yes | — |
+| Alert | Yes | Yes | — |
+| Avatar | Yes | Yes | — |
+| Progress | Yes | Yes | — |
+| Spinner | Yes | Yes | Yes |
+| Badge | Yes | Yes | — |
+| Chip | Yes | Yes | — |
+| Tooltip | Yes | Yes | Yes |
+| Popover | Yes | Yes | Yes |
+| Table | Yes | Yes | — |
+| ListGroup | Yes | Yes | — |
+| Accordion | Yes | Yes | — |
+| Pagination | Yes | Yes | — |
+
+Components with CSS-only rendering use classes like `cui-button.--primary`. Components marked "Yes" under Vue Component also have a dynamic Vue component for variant-dependent HTML structure or JavaScript behavior.
+
+---
+
+## Theme JSON Structure
+
+The editor exports a flat JSON with the following schema:
+
+```typescript
+{
+  name: string
+  version: string                          // "1.0"
+  typography?: {
+    globalConfig: TypographyGlobalConfig
+    variants: TypographyVariant[]
+    selectedVariantIndex: number
+  }
+  forms?: {
+    globalConfig: FormsGlobalConfig
+    variants: FormsVariant[]
+    selectedVariantIndex: number
+    currentState?: string
+  }
+  buttons?: { variants: ButtonVariant[]; selectedVariantIndex: number }
+  cards?: { ... }
+  alerts?: { ... }
+  spinners?: { ... }
+  // ... one key per component
+}
+```
+
+---
+
+## CSS Generation
+
+Each package follows the same CSS generation pipeline:
+
+1. `ComboUI.init()` loads the theme from URL, object, or file
+2. For each component with variants:
+   - Load Google Fonts from variant data
+   - Call `generate[Component]CSS(variants, globalConfig)`
+   - Inject combined CSS into `<style id="cui-styles">`
+
+CSS uses custom properties for theming:
+
+- **Base class** `.cui-component` declares `--cui-*` custom properties
+- **Variant class** `.cui-component.--variant-name` overrides those properties
+- **Dark mode** `body[color-scheme="dark"] .cui-component.--variant-name`
+
+Injection order: Reset → Base styles → Basscss → Component CSS
+
+---
+
+## Download
+
+[Latest Release](https://github.com/masweb/combo-ui-editor/releases/)
+
+Available for macOS as a Tauri 2 desktop application.

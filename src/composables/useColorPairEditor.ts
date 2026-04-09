@@ -5,6 +5,12 @@ export interface ColorPair {
 
 const STORAGE_KEY = 'combo-ui-color-pairs'
 
+const DEFAULT_PAIRS: ColorPair[] = [
+  { light: '#58cbde', dark: '#293754' },
+  { light: '#d08fb3', dark: '#642e3e' },
+  { light: '#a9d799', dark: '#314b43' }
+]
+
 export const useColorPairEditor = () => {
   const pairs = ref<ColorPair[]>([])
 
@@ -13,9 +19,13 @@ export const useColorPairEditor = () => {
       const stored = localStorage.getItem(STORAGE_KEY)
       if (stored) {
         pairs.value = JSON.parse(stored)
+      } else {
+        pairs.value = [...DEFAULT_PAIRS]
+        save()
       }
     } catch {
-      pairs.value = []
+      pairs.value = [...DEFAULT_PAIRS]
+      save()
     }
   }
 

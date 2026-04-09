@@ -76,9 +76,13 @@ const textColor = computed(() =>
   isDark.value ? typographyStore.globalConfig.dark.color : typographyStore.globalConfig.color
 )
 
+const showModal = ref(false)
+
 const handleGenerate = async () => {
   if (colorPairs.pairs.value.length === 0) return
   await themeGenerator.saveThemeToDB(colorPairs.pairs.value, themeName.value)
+  showModal.value = true
+  setTimeout(() => (showModal.value = false), 2000)
 }
 </script>
 
@@ -204,7 +208,7 @@ const handleGenerate = async () => {
             <hr class="my-2" style="opacity: 0.15" />
 
             <div class="row g-3">
-              <div class="col-auto" style="width: 260px">
+              <div class="col-3" style="width: 260px">
                 <FontFamilyField
                   :font-family="genFontFamily"
                   :font-style="genFontStyle"
@@ -215,7 +219,7 @@ const handleGenerate = async () => {
                 />
               </div>
 
-              <div class="col-auto">
+              <div class="col-2">
                 <ColorField
                   :label="t('themeGenerator.color')"
                   :model-value="themeGenerator.options.value.typography.color"
@@ -223,7 +227,7 @@ const handleGenerate = async () => {
                 />
               </div>
 
-              <div class="col-auto">
+              <div class="col-2">
                 <ColorField
                   :label="t('themeGenerator.backgroundColor')"
                   :model-value="themeGenerator.options.value.typography.backgroundColor"
@@ -231,7 +235,7 @@ const handleGenerate = async () => {
                 />
               </div>
 
-              <div class="col-auto">
+              <div class="col-2">
                 <ColorField
                   :label="t('themeGenerator.darkColor')"
                   :model-value="themeGenerator.options.value.typography.darkColor"
@@ -239,7 +243,7 @@ const handleGenerate = async () => {
                 />
               </div>
 
-              <div class="col-auto">
+              <div class="col-2">
                 <ColorField
                   :label="t('themeGenerator.darkBackgroundColor')"
                   :model-value="themeGenerator.options.value.typography.darkBackgroundColor"
@@ -298,11 +302,66 @@ const handleGenerate = async () => {
     <div class="mb-5 mt-5">&nbsp;</div>
     <div class="mb-5 mt-5">&nbsp;</div>
     <div class="mb-5 mt-5">&nbsp;</div>
-    <div class="mb-5 mt-5">&nbsp;</div>
-    <div class="mb-5 mt-5">&nbsp;</div>
-    <div class="mb-5 mt-5">&nbsp;</div>
-    <div class="mb-5 mt-5">&nbsp;</div>
-    <div class="mb-5 mt-5">&nbsp;</div>
-    <div class="mb-5 mt-5">&nbsp;</div>
+
+    <!-- Feedback Modal -->
+    <Transition name="modal-fade">
+      <div v-if="showModal" class="theme-feedback-backdrop" @click="showModal = false">
+        <div class="theme-feedback-modal" @click.stop>
+          <div class="theme-feedback-check">✓</div>
+          <div class="theme-feedback-text">Tema generado!</div>
+        </div>
+      </div>
+    </Transition>
   </div>
 </template>
+
+<style scoped>
+.theme-feedback-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.theme-feedback-modal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 32px 48px;
+  border-radius: 12px;
+  background: var(--cui-body-bg, #fff);
+  color: var(--cui-body-color, #212529);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.theme-feedback-check {
+  width: 48px;
+  height: 48px;
+  line-height: 48px;
+  text-align: center;
+  font-size: 24px;
+  font-weight: 700;
+  border-radius: 50%;
+  background: #28a745;
+  color: #fff;
+}
+
+.theme-feedback-text {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.modal-fade-enter-active,
+.modal-fade-leave-active {
+  transition: opacity 0.25s ease;
+}
+
+.modal-fade-enter-from,
+.modal-fade-leave-to {
+  opacity: 0;
+}
+</style>

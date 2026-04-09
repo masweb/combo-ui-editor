@@ -54,12 +54,12 @@ export interface ThemeGeneratorOptions {
 }
 
 const DEFAULT_GENERATOR_OPTIONS: ThemeGeneratorOptions = {
-  borderRadius: 4,
-  enableShadow: false,
+  borderRadius: 10,
+  enableShadow: true,
   enableInsetShadow: false,
   enableInsetHighlight: false,
   typography: {
-    fontFamily: 'Inter',
+    fontFamily: '',
     color: '#212529',
     backgroundColor: '#ffffff',
     darkColor: '#f8f9fa',
@@ -560,6 +560,7 @@ export const useThemeGenerator = () => {
     } catch {
       // ignore
     }
+    saveOptions()
     return { ...DEFAULT_GENERATOR_OPTIONS }
   }
 
