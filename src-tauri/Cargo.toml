@@ -35,4 +35,3 @@ tauri-plugin-window-state = "2"
 objc2 = "0.5"
 objc2-app-kit = { version = "0.2", features = ["NSColorSampler", "NSColor", "block2"] }
 block2 = "0.5"
-
