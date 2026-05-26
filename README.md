@@ -4,7 +4,7 @@
 
 A visual design system editor that lets you create, customize, and sync UI component themes in real-time across your Vue, React, Angular, and Vanilla JS applications.
 
-**[Download the Editor](https://github.com/masweb/combo-ui-editor/releases/)** · **[View on GitHub](https://github.com/masweb/combo-ui-editor)**
+**[Download the Editor](https://github.com/masweb/combo-ui-editor/releases/)**  
 
 ---
 
