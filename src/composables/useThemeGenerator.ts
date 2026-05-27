@@ -560,7 +560,8 @@ export const useThemeGenerator = () => {
     } catch {
       // ignore
     }
-    saveOptions()
+    // Save defaults directly — options ref hasn't been created yet
+    localStorage.setItem(OPTIONS_STORAGE_KEY, JSON.stringify(DEFAULT_GENERATOR_OPTIONS))
     return { ...DEFAULT_GENERATOR_OPTIONS }
   }
 
