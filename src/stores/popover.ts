@@ -21,7 +21,7 @@ const defaultHeaderBorder = createBorder('solid', 1, '#dee2e6')
 const defaultHeaderPadding = createPadding(true, true, 'px', 8, 16, 8, 16)
 const defaultHeaderFontSize = createFontSize(14)
 
-export const createDefaultVariant = (name: string): PopoverVariant => ({
+export const createDefaultPopoverVariant = (name: string): PopoverVariant => ({
   name,
   placement: 'top',
   background: '#ffffff',
@@ -62,6 +62,6 @@ export const createDefaultVariant = (name: string): PopoverVariant => ({
 export const usePopoverStore = defineStore('popover', () =>
   createComponentStore<PopoverVariant>({
     componentId: 'popover',
-    createDefault: createDefaultVariant
+    createDefault: createDefaultPopoverVariant
   })
 )

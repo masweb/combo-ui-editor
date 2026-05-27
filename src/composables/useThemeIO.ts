@@ -1,3 +1,4 @@
+import type { ThemeData } from '@/types/theme'
 import { db, COMPONENT_STORE_MAP, EXPORT_KEY_MAP } from '@/db'
 import { storeManager } from './useStoreManager.js'
 import { loadGoogleFont } from './useGoogleFonts.js'
@@ -350,22 +351,4 @@ export const useThemeIO = () => {
   }
 }
 
-/**
- * Theme data structure
- */
-export interface ThemeData {
-  name: string
-  version: string
-  typography?: {
-    globalConfig: unknown
-    variants: unknown[]
-    selectedVariantIndex: number
-  }
-  forms?: {
-    globalConfig: unknown
-    variants: unknown[]
-    selectedVariantIndex: number
-    currentState?: string
-  }
-  [key: string]: unknown
-}
+

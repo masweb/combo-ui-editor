@@ -13,7 +13,7 @@ const defaultBorderRadius = createBorderRadius(true, '%', 50)
 const defaultPadding = createPadding(true, true, 'px', 0, 0, 0, 0)
 const defaultFontSize = createFontSize(24)
 
-export const createDefaultVariant = (name: string): AvatarVariant => ({
+export const createDefaultAvatarVariant = (name: string): AvatarVariant => ({
   name,
   size: { value: 64, unit: 'px' },
   showImage: false,
@@ -50,6 +50,6 @@ export const createDefaultVariant = (name: string): AvatarVariant => ({
 export const useAvatarStore = defineStore('avatar', () =>
   createComponentStore<AvatarVariant>({
     componentId: 'avatar',
-    createDefault: createDefaultVariant
+    createDefault: createDefaultAvatarVariant
   })
 )

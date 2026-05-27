@@ -6,7 +6,7 @@ const defaultBorder = createBorder('solid', 1, '#333333')
 const defaultWidth: DividerWidthValue = { value: 100, unit: '%' }
 const defaultSpacing = createUnitNumber(16)
 
-export const createDefaultVariant = (name: string): DividerVariant => ({
+export const createDefaultDividerVariant = (name: string): DividerVariant => ({
   name,
   border: { ...defaultBorder },
   width: { ...defaultWidth },
@@ -19,6 +19,6 @@ export const createDefaultVariant = (name: string): DividerVariant => ({
 export const useDividerStore = defineStore('divider', () =>
   createComponentStore<DividerVariant>({
     componentId: 'divider',
-    createDefault: createDefaultVariant
+    createDefault: createDefaultDividerVariant
   })
 )

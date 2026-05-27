@@ -20,7 +20,7 @@ const defaultCloseSize = createUnitNumber(20)
 const defaultMaxWidth = createUnitNumber(500)
 const defaultOffset = createUnitNumber(16)
 
-export const createDefaultVariant = (name: string): AlertVariant => ({
+export const createDefaultAlertVariant = (name: string): AlertVariant => ({
   name,
   background: '#d1ecf1',
   color: '#0c5460',
@@ -72,6 +72,6 @@ export const createDefaultVariant = (name: string): AlertVariant => ({
 export const useAlertStore = defineStore('alert', () =>
   createComponentStore<AlertVariant>({
     componentId: 'alert',
-    createDefault: createDefaultVariant
+    createDefault: createDefaultAlertVariant
   })
 )

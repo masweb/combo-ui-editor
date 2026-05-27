@@ -42,7 +42,7 @@ export default defineConfig(async () => ({
   css: {
     preprocessorOptions: {
       scss: {
-        silenceDeprecations: ['import', 'mixed-decls', 'color-functions', 'global-builtin']
+        silenceDeprecations: ['import', 'color-functions', 'global-builtin']
       }
     }
   },

@@ -25,7 +25,21 @@ declare global {
   const configure: typeof import('vee-validate').configure
   const createApp: typeof import('vue').createApp
   const createComponentStore: typeof import('./src/composables/useComponentStoreFactory').createComponentStore
-  const createDefaultVariant: typeof import('./src/stores/tooltip').createDefaultVariant
+  const createDefaultAccordionVariant: typeof import('./src/stores/accordion').createDefaultAccordionVariant
+  const createDefaultAlertVariant: typeof import('./src/stores/alert').createDefaultAlertVariant
+  const createDefaultAvatarVariant: typeof import('./src/stores/avatar').createDefaultAvatarVariant
+  const createDefaultBadgeVariant: typeof import('./src/stores/badge').createDefaultBadgeVariant
+  const createDefaultButtonVariant: typeof import('./src/stores/button').createDefaultButtonVariant
+  const createDefaultCardVariant: typeof import('./src/stores/card').createDefaultCardVariant
+  const createDefaultChipVariant: typeof import('./src/stores/chip').createDefaultChipVariant
+  const createDefaultDividerVariant: typeof import('./src/stores/divider').createDefaultDividerVariant
+  const createDefaultListGroupVariant: typeof import('./src/stores/listgroup').createDefaultListGroupVariant
+  const createDefaultPaginationVariant: typeof import('./src/stores/pagination').createDefaultPaginationVariant
+  const createDefaultPopoverVariant: typeof import('./src/stores/popover').createDefaultPopoverVariant
+  const createDefaultProgressVariant: typeof import('./src/stores/progress').createDefaultProgressVariant
+  const createDefaultSpinnerVariant: typeof import('./src/stores/spinner').createDefaultSpinnerVariant
+  const createDefaultTableVariant: typeof import('./src/stores/table').createDefaultTableVariant
+  const createDefaultTooltipVariant: typeof import('./src/stores/tooltip').createDefaultTooltipVariant
   const createPinia: typeof import('pinia').createPinia
   const customRef: typeof import('vue').customRef
   const db: typeof import('./src/db/index').db
@@ -36,7 +50,6 @@ declare global {
   const defineStore: typeof import('pinia').defineStore
   const effectScope: typeof import('vue').effectScope
   const generateFontUrl: typeof import('./src/composables/googleFonts').generateFontUrl
-  const generateReadme: typeof import('./src/composables/useReadmeGenerator').generateReadme
   const getActivePinia: typeof import('pinia').getActivePinia
   const getCurrentInstance: typeof import('vue').getCurrentInstance
   const getCurrentScope: typeof import('vue').getCurrentScope

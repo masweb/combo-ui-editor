@@ -1,6 +1,6 @@
 {
   "name": "combo-ui-editor",
-  "version": "0.1.0",
+  "version": "0.3.0",
   "private": true,
   "type": "module",
   "scripts": {
@@ -11,14 +11,14 @@
     "tauri:dev": "cd src-tauri/theme-sync-server && pnpm run build && cd ../.. && pnpm tauri dev"
   },
   "dependencies": {
-    "@coreui/coreui": "^5.6.1",
+    "@coreui/coreui": "^5.7.1",
     "@coreui/vue": "^5.8.0",
-    "@intlify/unplugin-vue-i18n": "^11.1.2",
-    "@tabler/icons-vue": "^3.41.1",
-    "@tauri-apps/api": "^2.10.1",
-    "@tauri-apps/plugin-dialog": "~2.7.0",
-    "@tauri-apps/plugin-fs": "~2.5.0",
-    "@tauri-apps/plugin-opener": "^2.5.3",
+    "@intlify/unplugin-vue-i18n": "^11.2.3",
+    "@tabler/icons-vue": "^3.44.0",
+    "@tauri-apps/api": "^2.11.0",
+    "@tauri-apps/plugin-dialog": "~2.7.1",
+    "@tauri-apps/plugin-fs": "~2.5.1",
+    "@tauri-apps/plugin-opener": "^2.5.4",
     "@tauri-apps/plugin-process": "^2.3.1",
     "@tauri-apps/plugin-shell": "~2.3.5",
     "@tauri-apps/plugin-updater": "^2.10.1",
@@ -27,23 +27,23 @@
     "pinia": "^3.0.4",
     "tinycolor2": "catalog:",
     "vee-validate": "^4.15.1",
-    "vue": "^3.5.33",
-    "vue-i18n": "^11.4.0",
-    "ws": "^8.20.0"
+    "vue": "^3.5.35",
+    "vue-i18n": "^11.4.4",
+    "ws": "^8.21.0"
   },
   "devDependencies": {
-    "@tauri-apps/cli": "^2.10.1",
-    "@types/node": "^24.12.2",
+    "@tauri-apps/cli": "^2.11.2",
+    "@types/node": "^24.12.4",
     "@types/tinycolor2": "catalog:",
-    "@vitejs/plugin-vue": "^6.0.6",
+    "@vitejs/plugin-vue": "^6.0.7",
     "@vue/tsconfig": "^0.9.1",
-    "sass-embedded": "^1.99.0",
+    "sass-embedded": "^1.100.0",
     "typescript": "~6.0.3",
     "unplugin-auto-import": "^21.0.0",
-    "unplugin-vue-components": "^31.1.0",
-    "vite": "npm:@voidzero-dev/vite-plus-core@^0.1.20",
+    "unplugin-vue-components": "^32.1.0",
+    "vite": "npm:@voidzero-dev/vite-plus-core@^0.1.22",
     "vite-plus": "catalog:",
-    "vue-tsc": "^3.2.7"
+    "vue-tsc": "^3.3.2"
   },
   "packageManager": "pnpm@10.33.0"
 }

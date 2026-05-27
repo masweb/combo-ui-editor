@@ -4,6 +4,7 @@
  * Connects to the theme-sync-server and broadcasts theme changes.
  */
 
+import type { ThemeData } from '@/types/theme'
 import { db, COMPONENT_STORE_MAP, EXPORT_KEY_MAP } from '@/db'
 import { useThemeIO } from './useThemeIO.js'
 import { storeManager } from './useStoreManager.js'
@@ -334,20 +335,4 @@ function createThemeSyncInstance() {
   }
 }
 
-// Type for ThemeData (should match the one in types)
-interface ThemeData {
-  name: string
-  version: string
-  typography?: {
-    globalConfig: unknown
-    variants: unknown[]
-    selectedVariantIndex: number
-  }
-  forms?: {
-    globalConfig: unknown
-    variants: unknown[]
-    selectedVariantIndex: number
-    currentState?: string
-  }
-  [key: string]: unknown
-}
+

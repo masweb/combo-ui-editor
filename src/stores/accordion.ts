@@ -15,7 +15,7 @@ const defaultButtonFontSize = createFontSize(16)
 const defaultBodyPadding = createPadding(true, true, 'px', 12, 16, 12, 16)
 const defaultButtonPadding = createPadding(true, true, 'px', 14, 20, 14, 20)
 
-export const createDefaultVariant = (name: string): AccordionVariant => ({
+export const createDefaultAccordionVariant = (name: string): AccordionVariant => ({
   name,
   background: '#ffffff',
   color: '#212529',
@@ -54,6 +54,6 @@ export const createDefaultVariant = (name: string): AccordionVariant => ({
 export const useAccordionStore = defineStore('accordion', () =>
   createComponentStore<AccordionVariant>({
     componentId: 'accordion',
-    createDefault: createDefaultVariant
+    createDefault: createDefaultAccordionVariant
   })
 )

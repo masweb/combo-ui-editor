@@ -17,7 +17,7 @@ const defaultFontSize = createFontSize(13)
 const defaultArrowSize = createUnitNumber(6)
 const defaultMaxWidth = createUnitNumber(200)
 
-export const createDefaultVariant = (name: string): TooltipVariant => ({
+export const createDefaultTooltipVariant = (name: string): TooltipVariant => ({
   name,
   placement: 'top',
   background: '#333333',
@@ -46,6 +46,6 @@ export const createDefaultVariant = (name: string): TooltipVariant => ({
 export const useTooltipStore = defineStore('tooltip', () =>
   createComponentStore<TooltipVariant>({
     componentId: 'tooltip',
-    createDefault: createDefaultVariant
+    createDefault: createDefaultTooltipVariant
   })
 )

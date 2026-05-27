@@ -13,7 +13,7 @@ const defaultBorderRadius = createBorderRadius(true, 'px', 6)
 const defaultPadding = createPadding(true, true, 'px', 10, 20, 10, 20)
 const defaultFontSize = createFontSize(14)
 
-export const createDefaultVariant = (name: string): ButtonVariant => ({
+export const createDefaultButtonVariant = (name: string): ButtonVariant => ({
   name,
   background: '#0d6efd',
   color: '#ffffff',
@@ -63,6 +63,6 @@ export const createDefaultVariant = (name: string): ButtonVariant => ({
 export const useButtonStore = defineStore('button', () =>
   createComponentStore<ButtonVariant>({
     componentId: 'button',
-    createDefault: createDefaultVariant
+    createDefault: createDefaultButtonVariant
   })
 )

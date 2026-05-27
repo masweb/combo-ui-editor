@@ -13,7 +13,7 @@ const defaultBorderRadius = createBorderRadius(true, 'px', 6)
 const defaultFontSize = createFontSize(14)
 const defaultPadding = createPadding(true, true, 'px', 10, 16, 10, 16)
 
-export const createDefaultVariant = (name: string): ListGroupVariant => ({
+export const createDefaultListGroupVariant = (name: string): ListGroupVariant => ({
   name,
   background: '#ffffff',
   color: '#212529',
@@ -54,6 +54,6 @@ export const createDefaultVariant = (name: string): ListGroupVariant => ({
 export const useListGroupStore = defineStore('listgroup', () =>
   createComponentStore<ListGroupVariant>({
     componentId: 'listgroup',
-    createDefault: createDefaultVariant
+    createDefault: createDefaultListGroupVariant
   })
 )

@@ -7,7 +7,7 @@ const defaultBorderRadius = createBorderRadius(true, 'px', 10)
 const defaultHeight = createUnitNumber(20)
 const defaultLabelFontSize = createUnitNumber(12)
 
-export const createDefaultVariant = (name: string): ProgressVariant => ({
+export const createDefaultProgressVariant = (name: string): ProgressVariant => ({
   name,
   background: 'transparent',
   border: { ...defaultBorder },
@@ -41,6 +41,6 @@ export const createDefaultVariant = (name: string): ProgressVariant => ({
 export const useProgressStore = defineStore('progress', () =>
   createComponentStore<ProgressVariant>({
     componentId: 'progress',
-    createDefault: createDefaultVariant
+    createDefault: createDefaultProgressVariant
   })
 )

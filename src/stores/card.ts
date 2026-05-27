@@ -16,7 +16,7 @@ const defaultHeaderBorderBottom = createBorder('solid', 1, '#dee2e6')
 const defaultFontSize = createFontSize(14)
 const defaultHeaderFontSize = createFontSize(16)
 
-export const createDefaultVariant = (name: string): CardVariant => ({
+export const createDefaultCardVariant = (name: string): CardVariant => ({
   name,
   background: '#ffffff',
   color: '#212529',
@@ -56,6 +56,6 @@ export const createDefaultVariant = (name: string): CardVariant => ({
 export const useCardStore = defineStore('card', () =>
   createComponentStore<CardVariant>({
     componentId: 'card',
-    createDefault: createDefaultVariant
+    createDefault: createDefaultCardVariant
   })
 )
