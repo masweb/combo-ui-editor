@@ -58,11 +58,6 @@ pub fn run() {
         .plugin(tauri_plugin_fs::init())
         .invoke_handler(tauri::generate_handler![greet, pick_color])
         .setup(|app| {
-            // Open devtools for white-screen debugging
-            if let Some(window) = app.get_webview_window("main") {
-                window.open_devtools();
-            }
-
             let shell = app.shell();
 
             // Obtener la ruta al bundle del servidor
